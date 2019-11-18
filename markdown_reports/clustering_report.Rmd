@@ -1,0 +1,70 @@
+---
+title: "Cluster-analysis"
+output:
+  html_document: default
+---
+
+```{r loadlib, include=FALSE}
+# loeading 
+library(factoextra)
+#library("NbClust")
+```
+
+
+```{r}
+data("USArrests")      # Loading the data set
+df <- scale(USArrests) # Scaling the data
+
+# View the firt 3 rows of the data
+head(df, n = 3)
+```
+
+
+```{r}
+# Elbow method
+fviz_nbclust(df, kmeans, method = "wss") +
+  geom_vline(xintercept = 4, linetype = 2)+
+  labs(subtitle = "Elbow method")
+# Silhouette method
+fviz_nbclust(df, kmeans, method = "silhouette")+
+  labs(subtitle = "Silhouette method")
+# Gap statistic
+# nboot = 50 to keep the function speedy.
+# recommended value: nboot= 500 for your analysis.
+# Use verbose = FALSE to hide computing progression.
+set.seed(123)
+fviz_nbclust(df, kmeans, nstart = 25, method = "gap_stat", nboot = 200)+
+  labs(subtitle = "Gap statistic method")
+```
+
+
+<!-- ```{r, include=FALSE} -->
+<!-- nb <- NbClust(df, distance = "euclidean", min.nc = 2, -->
+<!--               max.nc = 10, method = "kmeans") -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- nb$Best.nc -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- set.seed(123) -->
+
+<!-- library(tidyverse) -->
+<!-- # function to compute total within-cluster sum of square  -->
+<!-- wss <- function(k) { -->
+<!--   kmeans(df, k, nstart = 10 )$tot.withinss -->
+<!-- } -->
+
+<!-- # Compute and plot wss for k = 1 to k = 15 -->
+<!-- k.values <- 1:15 -->
+
+<!-- # extract wss for 2-15 clusters -->
+<!-- wss_values <- map_dbl(k.values, wss) -->
+
+<!-- plot(k.values, wss_values, -->
+<!--        type="b", pch = 19, frame = FALSE,  -->
+<!--        xlab="Number of clusters K", -->
+<!--        ylab="Total within-clusters sum of squares") -->
+<!-- ``` -->
+
