@@ -83,7 +83,14 @@ Click the green “Create Repository” button and you’re set. You now have an
 
 * You can also add multiple files in one command. For example, run `git add Documentation Results/`
 
-* You might as well add all files in one go! Use `git add` on the remaining files: 
+* You might as well add all files in one go! Use `git add` on the remaining files
+
+* We are now ready to commit! Run:
+
+        git commit -m "adding the first set of files"
+
+* modify any file with harmless changes, then run `git status`. What is the current status? As you can see git already catch the modification you did.
+* Run `git diff file_name` use the name of the file you did a modification on instead of file_name. . A `-` means a deleted line, a `+` means an added line. There are also shown a few lines before and after the changes, to put them in context. Do tow another harmless modification in two different files. Run `git status`. Now run `git diff`. If we don't specify a file, it will show all changes made in any file,  compared to the previous commit. Do you see your changes?.
 
 If it is the first time you use git on your computer, you may want to configure it so that it is aware of your username. This username should match the username you have registered on Bitbucket. This will make it easier when you want to sync local changes with your remote Bitbucket repository.
 
