@@ -92,6 +92,12 @@ Click the green “Create Repository” button and you’re set. You now have an
 * modify any file with harmless changes, then run `git status`. What is the current status? As you can see git already catch the modification you did.
 * Run `git diff file_name` use the name of the file you did a modification on instead of file_name. . A `-` means a deleted line, a `+` means an added line. There are also shown a few lines before and after the changes, to put them in context. Do tow another harmless modification in two different files. Run `git status`. Now run `git diff`. If we don't specify a file, it will show all changes made in any file,  compared to the previous commit. Do you see your changes?.
 
+* Now as before git add the two files in one command and then git commit each of them in a separate command. This is a best practics as we want to optimally each commit to be a specified set of changes?
+
+* To see a history of our changes so far, run:
+
+        git log
+
 If it is the first time you use git on your computer, you may want to configure it so that it is aware of your username. This username should match the username you have registered on Bitbucket. This will make it easier when you want to sync local changes with your remote Bitbucket repository.
 
 git config --global user.name "Mona Lisa"
