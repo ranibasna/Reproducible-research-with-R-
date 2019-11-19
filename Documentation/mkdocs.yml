@@ -2,8 +2,9 @@ site_name: Reproducible Research with R
 nav:
     - Home: index.md
     - Conda: conda.md
-    - About: about.md
     - Git: Git.md
+    - Rmarkdown: Rmarkdown.md 
+    - About: about.md
 theme: readthedocs
 markdown_extensions:
   - admonition

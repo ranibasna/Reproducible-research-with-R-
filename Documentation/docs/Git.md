@@ -255,8 +255,57 @@ git push
 * Git will see that the conflict has been resolved and creates a new merge commit to finalize the merge.
 
 
+## Ignoring files
+
+* Git is aware of all files within the repository. However, it is not uncommon to have files that we don't want git to track. For instance, our analysis might produce several intermediate files and results. We typically don't track such files. Rather, we want to track the actual code and other related files (e.g. configuration files) that produce the intermediate and result files, given the raw input data.
+
+* To tell git what files to ignore we use a file called .gitignore. Let's create it:
+
+        touch .gitignore
+
+* Open the .gitignore file in an editor and add the following lines to it:
+
+        # Ignore these directories:
+        CsvData/
+
+        # Ignore temporary files:
+        .Rhistory
+        .DS_Store
+
+
+* Run git status again. Now there is no mention of the results and intermediate directories or the log.tmp file. Notice that we can use wildcards (`*`) to ignore files with a given pattern, e.g. a specific extension.
+
+* Go ahead and add, commit, and push the .gitignore file.
+
+
 
 # Git with R and Rstudio
+
+* We assume the following:
+    - You’ve registered a free GitHub account.
+    - You’ve installed/updated R and RStudio.
+    - You’ve installed Git.
+    - You’ve introduced yourself to Git.
+    - You’ve confirmed that you can push to / pull from GitHub from the command line.
+
+* Follow the steps:
+    - File > New Project > Version Control > Git. In “Repository URL”, paste the URL of your new GitHub repository. It will be something like this https://github.com/your-name/your-repo.git.
+    - fill in the project directory name, e.g. myrepo, which coincides with the GitHub repo name.
+    - I suggest you check “Open in new session”, (if you are doing something else in your current session) as that’s what you’ll usually do in real life.
+    - Click “Create Project”
+
+* From RStudio, modify the any file by adding the any line for instance, “This is an editing from RStudio”. Save your changes.
+
+* Commit these changes to your local repo. How? From RStudio:
+
+    - Click the “Git” tab in upper right pane.
+    - Check “Staged” box for any file.
+    - If you’re not already in the Git pop-up, click “Commit”.
+    - Type a message in “Commit message”, such as “Commit from RStudio”.
+    - Click “Commit”.
+
+* Pushing from RStudio: Click the green “Push” button to send your local changes to GitHub. If you are challenged for username and password, provide them (confirm from command line and the gitrepo the changes). 
+
 
 
 ![](image.png)
