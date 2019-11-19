@@ -30,3 +30,88 @@
         date: "19/11/2019"
         output: html_document
         ---
+
+* you can change things here. Please do change according to your information.
+
+* RStudio creates the document with some example text to get you started. Note below that there are chunks like
+
+        ```{r}
+        summary(cars)
+        ```
+
+* These are chunks of R code that will be executed by knitr and replaced by their results. More on this later.
+
+Also note the web address that’s put between angle brackets (< >) as well as the double-asterisks in **Knit**.
+
+* As you can see, there are essentially three types of components in an R Markdown document:
+
+    1. Text (written in R Markdown)
+    2. Code chunks (written in R, or another supported language).
+    3. The YAML header
+
+* For a full detail about the markdown language, you can see the following links [GitHub](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf).
+
+* Besides, here is an image of the typical steps and the most used commands.
+
+
+![](rm-cheatsheet.png)
+
+
+## More on the yaml header and parameters
+
+* One of the many benefits of working with R Markdown is that you can reproduce analysis at the click of a button. This makes it very easy to update any work and alter any input parameters within the report. Parameterized reports extend this one step further, and allow users to specify one or more parameters to customize the analysis. This is useful if you want to create a report template that can be reused across multiple similar scenarios. Examples may include:
+
+    1. Showing results for a specific geographic location.
+
+    2. Running a report that covers a specific time period.
+
+    3. Running a single analysis multiple times for different assumptions.
+
+    4. Controlling the behavior of knitr (e.g., specify if you want the code to be displayed or not).
+
+
+* Parameters are specified using the params field within the YAML section. We can specify one or more parameters with each item on a new line. As an example, we will work with out clustering_report.Rmd file:
+
+* The idea is that we want to control over our report different scinario. Suppose that we want to generate a report with different clustering method. If you are familiar with your function you should know how to do that. For our case we the function `fviz_nbclust` from the library factoextra can take different clustering methods. Allowed values include kmeans, pam, clara and hcut (for hierarchical clustering).
+
+* All standard R types that can be parsed by yaml::yaml.load() can be included as parameters, including character, numeric, integer, and logical types. We can also use R objects by including !r before R expressions.
+
+* let us open the clustering_report inside the markdown_reports folder. edit the file so yaml header looks like this:
+
+        ---
+        title: "Cluster-analysis"
+        output:
+        html_document: default
+        params:
+        cl_method: !r kmeans
+        Rows_num : 5
+        ---
+
+
+* Change the first chunck so it looks like this:
+
+        ```{r}
+        data("USArrests")      # Loading the data set
+        df <- scale(USArrests) # Scaling the data
+        # View the firt 3 rows of the data
+        head(df, params$Rows_num)
+        ```
+
+* Also change the second chunck so it lokks like this:
+
+        ```{r}
+        set.seed(123)
+        # Elbow method
+        fviz_nbclust(df, FUNcluster = params$cl_method, method = "wss") +
+        geom_vline(xintercept = 4, linetype = 2)+
+        labs(subtitle = "Elbow method")
+        # Silhouette method
+        fviz_nbclust(df, FUNcluster =  params$cl_method, method = "silhouette")+
+        labs(subtitle = "Silhouette method")
+        # Gap statistic
+        # nboot = 50 to keep the function speedy.
+        # recommended value: nboot= 500 for your analysis.
+        # Use verbose = FALSE to hide computing progression.
+        fviz_nbclust(df, FUNcluster =  params$cl_method, nstart = 25, method = "gap_stat", nboot = 200)+
+        labs(subtitle = "Gap statistic method")
+        ```
