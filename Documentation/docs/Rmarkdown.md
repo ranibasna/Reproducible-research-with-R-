@@ -137,4 +137,5 @@ Also note the web address that’s put between angle brackets (< >) as well as t
 
 * Now run the fowwlowing code from R consol
 
+        library(factoextra)
         rmarkdown::render("markdown_reports/clustering_report.Rmd", params = list(cl_method = hcut, Rows_num = 4))
