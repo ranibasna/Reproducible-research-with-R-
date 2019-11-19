@@ -1,0 +1,6 @@
+# Ignore these directories:
+CsvData/
+
+# Ignore temporary files
+.Rhistory
+.DS_Store

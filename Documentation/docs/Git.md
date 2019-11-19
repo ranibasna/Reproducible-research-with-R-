@@ -191,6 +191,71 @@ Normally, you sit on your computer an work on a project. you commit changes as y
 ![](08.svg)
 
 
+## Conflicts
+
+* If the two branches you're trying to merge both changed the same part of the same file, Git won't be able to figure out which version to use. When such a situation occurs, it stops right before the merge commit so that you can resolve the conflicts manually.
+
+* We will demonstrate a simple case here. But this can go also with the branches.
+
+* We will now learn how to manage conflicts. This is important to know, since it will probably happen sooner or later. It can get a bit tricky, but the important thing is not to panic! :)
+
+On the github web page, navigate to clustering_code and click on clustering_code.R and click Edit. We can now edit this file directly on the web. This is generally not recommended, but we will do it here to demonstrate a point.
+Let's just add a comment inside the file. Do that:
+
+        # adding a comment inside the clustering_code file
+
+Click Commit. Add the commit message: "adding a comment inside the clustering_code file". Click Commit.
+Click Commits to the left to see the commit history, and your latest change at the top.
+Now we have a change in the remote repository that is not yet in our local clone. This could happen for instance if a collaborator of yours committed a change and pushed it to github.
+
+Go back to your local terminal. Run git status. Notice that git says: "Your branch is up-to-date with 'origin/master'.". This is of course not true, but our local git clone is not yet aware of the remote changes. We will get those changes soon.
+But first, we will edit clustering_code.R locally as well! (It may be the case that your collaborator thought it was good to use different coding function or different approach, but neither of you communicated that to the other.) Use a text editor and change the the same chenges at the same line.
+
+Commit your change (use git status along the way if you want to check what is happening in the different steps):
+git status
+git add clustering_code.R
+git status
+git commit -m "adding a comment inside the clustering_code file"
+git status
+Now let's try to push this commit!
+git push
+
+
+* Read the error message. It should be fairly informative of what is going on. In essence it will not allow you to push since there are conflicting changes made to the remote repository.
+
+* We will now download the changes made to the remote:
+
+        git fetch
+
+
+* Now run `git status`. Unlike before, our local git clone now is aware of the latest changes pushed to the remote. It will tell you something along the lines: "Your branch and 'origin/master' have diverged, and have 1 and 1 different commit each, respectively.".
+
+* Now, since we ran `git fetch` our local git has up-to-date information about the status of the remote repository. We can therefore run the following to see what the difference is between the current state of our local clone and the master branch on the remote origin:
+
+        git diff origin/master
+
+* Now let's try to integrate the remote changes with our local changes and get up to sync with the remote:
+
+        git pull
+
+!!!Tip
+    Note that you can skip the `git fetch`command if you want to and run `git pull` directly. The difference is that fetch will just update git with the latest information of the remote status, whereas pull will try to integrate and sync those changes to your local clone directly.
+
+* As you have probably noticed, the git pull command resulted in a conflict. Git tells us about this and suggests that we should fix the conflicts and commit that. As always, run git status to get an overview! You will see that you have, so called, unmerged paths and that the conflicting file is clustering_code.R, since both modified the same line in this file. To fix a conflict, open the affected file in a text editor. You will see that it now looks different.
+
+* Think of these new lines as "conflict dividers". The ======= line is the "center" of the conflict. All the content between the center and the <<<<<<< HEAD line is content that exists in the local branch origin which the HEAD ref is pointing to. Alternatively all content between the center and >>>>>>> d9b35ef61d2fde56fcbd64aacb10a96098c67cbf (The long sequence of characters is the commit id) is content that is present in our remote branch master.
+
+
+* The most direct way to resolve a merge conflict is to edit the conflicted file. Open the clustering_code file in your favorite editor. For our example lets simply remove all the conflict dividers and choose the comment that you want (in this case you may to discuss with your cloaborators about the best way to go around this as usually it is much more than comment). The modified clustering_code.R content.
+
+* Once the file has been edited use git add clustering_code.R to stage the new merged content. To finalize the merge create a new commit by executing:
+
+        git commit -m"merged and resolved the conflict in clustering_code.R"
+
+* Git will see that the conflict has been resolved and creates a new merge commit to finalize the merge.
+
+
+
 # Git with R and Rstudio
 
 
