@@ -4,3 +4,4 @@ CsvData/
 # Ignore temporary files
 .Rhistory
 .DS_Store
+.Rproj.user

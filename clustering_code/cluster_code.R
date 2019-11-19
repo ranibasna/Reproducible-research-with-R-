@@ -9,6 +9,8 @@ km.res <- kmeans(df, 4, nstart = 25)
 clustering_result <- cbind(USArrests, cluster = km.res$cluster)
 write.csv(clustering_result, file = args[2])
 
+# this is a small chenge to test Rstudio with git
+
 # library(readr) # using reader library instead to not writing row names
 # write_csv(USArrests, '/Users/xbasra/Documents/myReproducibleresearch/CsvData/USArrests.csv')
 #write.csv(USArrests, '/Users/xbasra/Documents/myReproducibleresearch/CsvData/USArrests.csv')
