@@ -115,3 +115,26 @@ Also note the web address that’s put between angle brackets (< >) as well as t
         fviz_nbclust(df, FUNcluster =  params$cl_method, nstart = 25, method = "gap_stat", nboot = 200)+
         labs(subtitle = "Gap statistic method")
         ```
+* If you are working with git you may want to commit and push changes from time to time as an exercize.
+
+
+## Kinting with parameters
+
+* There are four ways in which a parameterized report can be knitted:
+
+    - Using the Knit button within RStudio.
+    - By running the R command rmarkdown::render() with the params argument from r consol.
+    - By running on the terminal command line: R -e 'rmarkdown::render("my_file.Rmd")'
+    - Using an interactive user interface to input parameter values.
+
+
+    rmarkdown::render("MyDocument.Rmd", params = list(
+      year = 2017,
+      region = "Asia",
+      printcode = FALSE,
+      file = "file2.csv"
+    ))
+
+* Now run the fowwlowing code from R consol
+
+        rmarkdown::render("markdown_reports/clustering_report.Rmd", params = list(cl_method = hcut, Rows_num = 4))
