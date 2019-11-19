@@ -98,11 +98,100 @@ Click the green “Create Repository” button and you’re set. You now have an
 
         git log
 
-If it is the first time you use git on your computer, you may want to configure it so that it is aware of your username. This username should match the username you have registered on Bitbucket. This will make it easier when you want to sync local changes with your remote Bitbucket repository.
+* You can use `git rm file_name` to remove a file (this can be seen as a combination of two steps `rm file_name` then `git add file_name`)
+let us remove clusterimg_result. Run `git rm Results/cluster_result`. This will add the removing to the staging area. Now you can commit the removal. You can see that directory Results does not exists anymore.
 
-git config --global user.name "Mona Lisa"
+## Pushing changes to the remote Repository
 
-# Git with R
+Normally, you sit on your computer an work on a project. you commit changes as you go. At some point (usually when you feel that you have added some new features to the project) you can push these changes to the remote (Online) repository.
+
+* Since you haven’t connected to the GitHub repo yet, your computer doesn’t even know this exists. So tell your local repository about it:
+
+        git remote add origin https://github.com/123WebDesign/icecream.git
+
+* you can now push the changes to the remote repository (usually called the master branch)
+
+        git push -u origin master
+
+* If you go to your github project page you can see that all the files are their. Also, they are on lated version. You can check that.
+
+## Branching with Git
+
+* branching is an operation that let you work on some features of the project in an isolated manner of the master branch. This effectly means that your work in the new branch will not affect the main project files.  You can as ell use branchs to fix a problem that appear in the project. This allow you to work in peace knowing that your stable version is in safe. When you feel that the new feature (you are developing using a new branch) is a good stable state you can merge it with the master branch and it will be part of the project.
+
+![](01.svg)
+
+* The diagram above visualizes a repository with two isolated lines of development, one for a little feature, and one for a longer-running feature. By developing them in branches, it’s not only possible to work on both of them in parallel, but it also keeps the main master branch free from questionable code.
+
+!!! Note
+    Note that it is more effecint to use branching when you are collaborating with others on a project. Since you may want to develop a new feature while letting otheres keep pushing to the master branch.
+
+!!! Note
+    It's important to understand that branches are just pointers to commits. When you create a branch, all Git needs to do is create a new pointer, it doesn’t change the repository in any other way. The repository history remains unchanged.
+
+* To create a branch you run:
+
+        git branch branch_name
+        # you can try
+        git branch new_branch
+        # check the branches
+        git branch
+* you see a star beside the branch you are currently inside.
+
+!!!Note
+    You may want to work with others on the new branch, this is beyond our course scope. However,  you can create a remote branch. Similar to what we before, we need to tell that we add a rempte branch. In the follwoing commands we create and push a copy of the local branch to the remote repo.
+
+
+            $ git remote add new_branch-remote-repo `github url`
+            # Add remote repo to local repo config
+            $ git push <new_branch-remote-repo> branch_name~
+            # pushes the branch_name  branch to new-remote-repo
+
+
+* you can delete the branch by running
+
+        git branch -d branch_name
+
+* However, if the branch hasn’t been merged, the above command will output an error message. To force the delation run
+
+        git branch -D branch_name
+
+* The previous commands will delete a local copy of a branch. The branch may still exist in remote repos. To delete a remote branch execute the following.
+
+        git push origin --delete branch_name
+
+* checking out branch (switch between branches): The git checkout command lets you navigate between the branches created by git branch. Checking out a branch updates the files in the working directory to match the version stored in that branch, and it tells Git to record all new commits on that branch. Think of it as a way to select which line of development you’re working on.
+
+        # you can try
+        git checkout new_branch
+        git branch # to varify that you are now moved to the new branch
+
+
+* The git checkout command accepts a -b argument that acts as a convenience method which will create the new branch and immediately switch to it. You can work on multiple features in a single repository by switching between them with git checkout.
+
+        git checkout -b new_branch
+
+## Merging
+
+* The git merge command lets you take the independent lines of development created by git branch and integrate them into a single branch. Suppose that after running tests and adding new things you are satisfied with the your new feature that you are develpoing on your new branch. it is now the time to merge with the master branch.  You do this with the git merge command (after checking out to the master branch):
+
+        git checkout master
+        git merge new_branch
+
+
+* it is important to distinguish between twoo type of merges that git performe.
+
+
+* A fast-forward merge can occur when there is a linear path from the current branch tip to the target branch. Instead of “actually” merging the branches, all Git has to do to integrate the histories is move (i.e., “fast forward”) the current branch tip up to the target branch tip. This effectively combines the histories, since all of the commits reachable from the target branch are now available through the current one. For example, a fast forward merge of some-feature into master would look something like the following:
+
+![](07.svg)
+
+* However, a fast-forward merge is not possible if the branches have diverged. When there is not a linear path to the target branch, Git has no choice but to combine them via a 3-way merge. 3-way merges use a dedicated commit to tie together the two histories. The nomenclature comes from the fact that Git uses three commits to generate the merge commit: the two branch tips and their common ancestor.
+
+![](08.svg)
+
+
+# Git with R and Rstudio
 
 
 ![](image.png)
