@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Rmarkdown - Reproducible Research with R</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Rmarkdown";
+    var mkdocs_page_input_path = "Rmarkdown.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Reproducible Research with R</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../conda/">Conda</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Git/">Git</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Rmarkdown</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#introduction-to-r-markdown">Introduction to R Markdown</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#basic-components-of-r-markdown">Basic components of R Markdown</a></li>
+        
+            <li><a class="toctree-l3" href="#more-on-the-yaml-header-and-parameters">More on the yaml header and parameters</a></li>
+        
+            <li><a class="toctree-l3" href="#kinting-with-parameters">Kinting with parameters</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../final_word/">Final word</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../about.md">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Reproducible Research with R</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Rmarkdown</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="introduction-to-r-markdown">Introduction to R Markdown</h1>
+<ul>
+<li>
+<p>R Markdown provides an authoring framework for data science. You can use a single R Markdown file to both</p>
+</li>
+<li>
+<p>save and execute code</p>
+</li>
+<li>
+<p>generate high quality reports that can be shared with an audience</p>
+</li>
+<li>
+<p>R Markdown documents are fully reproducible and support dozens of static and dynamic output formats.</p>
+</li>
+<li>
+<p>The key tool for R is knitr, which allows you to create a document that is a mixture of text and some chunks of code. When the document is processed by knitr, chunks of R code will be executed, and graphs or other results inserted.</p>
+</li>
+<li>
+<p>This sort of idea has been called “literate programming”.</p>
+</li>
+<li>
+<p>knitr allows you to mix basically any sort of text with any sort of code, but we recommend that you use R Markdown, which mixes Markdown with R. Markdown is a light-weight mark-up language for creating web pages.</p>
+</li>
+<li>
+<p>Within R Studio, click File → New File → R Markdown. You can stick with the default (HTML output), but give it a title.</p>
+</li>
+<li>
+<p>When you run render, R Markdown feeds the .Rmd file to knitr ⧉, which executes all of the code chunks and creates a new markdown (.md) document which includes the code and it’s output.</p>
+</li>
+<li>
+<p>The markdown file generated by knitr is then processed by pandoc ⧉ which is responsible for creating the finished format.</p>
+</li>
+<li>
+<p>This may sound complicated, but R Markdown makes it extremely simple by encapsulating all of the above processing into a single render function.</p>
+</li>
+</ul>
+<h2 id="basic-components-of-r-markdown">Basic components of R Markdown</h2>
+<ul>
+<li>
+<p>The first chunk is called the header. Here we will later add some instructions. But for now we will give it a simple information.</p>
+<pre><code>---
+title: "First R markdown document "
+author: "Rani Basna"
+date: "19/11/2019"
+output: html_document
+---
+</code></pre>
+</li>
+<li>
+<p>you can change things here. Please do change according to your information.</p>
+</li>
+<li>
+<p>RStudio creates the document with some example text to get you started. Note below that there are chunks like</p>
+<pre><code>```{r}
+summary(cars)
+```
+</code></pre>
+</li>
+<li>
+<p>These are chunks of R code that will be executed by knitr and replaced by their results. More on this later.</p>
+</li>
+</ul>
+<p>Also note the web address that’s put between angle brackets (&lt; &gt;) as well as the double-asterisks in <strong>Knit</strong>.</p>
+<ul>
+<li>
+<p>As you can see, there are essentially three types of components in an R Markdown document:</p>
+<ol>
+<li>Text (written in R Markdown)</li>
+<li>Code chunks (written in R, or another supported language).</li>
+<li>The YAML header</li>
+</ol>
+</li>
+<li>
+<p>For a full detail about the markdown language, you can see the following links <a href="https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">GitHub</a>.</p>
+</li>
+<li>
+<p>Besides, here is an image of the typical steps and the most used commands.</p>
+</li>
+</ul>
+<p><img alt="" src="../rm-cheatsheet.png" /></p>
+<h2 id="more-on-the-yaml-header-and-parameters">More on the yaml header and parameters</h2>
+<ul>
+<li>
+<p>One of the many benefits of working with R Markdown is that you can reproduce analysis at the click of a button. This makes it very easy to update any work and alter any input parameters within the report. Parameterized reports extend this one step further, and allow users to specify one or more parameters to customize the analysis. This is useful if you want to create a report template that can be reused across multiple similar scenarios. Examples may include:</p>
+<ol>
+<li>
+<p>Showing results for a specific geographic location.</p>
+</li>
+<li>
+<p>Running a report that covers a specific time period.</p>
+</li>
+<li>
+<p>Running a single analysis multiple times for different assumptions.</p>
+</li>
+<li>
+<p>Controlling the behavior of knitr (e.g., specify if you want the code to be displayed or not).</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Parameters are specified using the params field within the YAML section. We can specify one or more parameters with each item on a new line. As an example, we will work with out clustering_report.Rmd file:</p>
+</li>
+<li>
+<p>The idea is that we want to control over our report different scinario. Suppose that we want to generate a report with different clustering method. If you are familiar with your function you should know how to do that. For our case we the function <code>fviz_nbclust</code> from the library factoextra can take different clustering methods. Allowed values include kmeans, pam, clara and hcut (for hierarchical clustering).</p>
+</li>
+<li>
+<p>All standard R types that can be parsed by yaml::yaml.load() can be included as parameters, including character, numeric, integer, and logical types. We can also use R objects by including !r before R expressions.</p>
+</li>
+<li>
+<p>let us open the clustering_report inside the markdown_reports folder. edit the file so yaml header looks like this:</p>
+<pre><code>---
+title: "Cluster-analysis"
+output:
+html_document: default
+params:
+cl_method: !r kmeans
+Rows_num : 5
+---
+</code></pre>
+</li>
+<li>
+<p>Change the first chunck so it looks like this:</p>
+<pre><code>```{r}
+data("USArrests")      # Loading the data set
+df &lt;- scale(USArrests) # Scaling the data
+# View the firt 3 rows of the data
+head(df, params$Rows_num)
+```
+</code></pre>
+</li>
+<li>
+<p>Also change the second chunck so it lokks like this:</p>
+<pre><code>```{r}
+set.seed(123)
+# Elbow method
+fviz_nbclust(df, FUNcluster = params$cl_method, method = "wss") +
+geom_vline(xintercept = 4, linetype = 2)+
+labs(subtitle = "Elbow method")
+# Silhouette method
+fviz_nbclust(df, FUNcluster =  params$cl_method, method = "silhouette")+
+labs(subtitle = "Silhouette method")
+# Gap statistic
+# nboot = 50 to keep the function speedy.
+# recommended value: nboot= 500 for your analysis.
+# Use verbose = FALSE to hide computing progression.
+fviz_nbclust(df, FUNcluster =  params$cl_method, nstart = 25, method = "gap_stat", nboot = 200)+
+labs(subtitle = "Gap statistic method")
+```
+</code></pre>
+<ul>
+<li>If you are working with git you may want to commit and push changes from time to time as an exercize.</li>
+</ul>
+</li>
+</ul>
+<h2 id="kinting-with-parameters">Kinting with parameters</h2>
+<ul>
+<li>
+<p>There are four ways in which a parameterized report can be knitted:</p>
+<ul>
+<li>Using the Knit button within RStudio.</li>
+<li>By running the R command rmarkdown::render() with the params argument from r consol.</li>
+<li>By running on the terminal command line: R -e 'rmarkdown::render("my_file.Rmd")'</li>
+<li>Using an interactive user interface to input parameter values.</li>
+</ul>
+<p>rmarkdown::render("MyDocument.Rmd", params = list(
+  year = 2017,
+  region = "Asia",
+  printcode = FALSE,
+  file = "file2.csv"
+))</p>
+</li>
+<li>
+<p>Now run the fowwlowing code from R consol</p>
+<pre><code>library(factoextra)
+rmarkdown::render("markdown_reports/clustering_report.Rmd", params = list(cl_method = hcut, Rows_num = 4))
+</code></pre>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../final_word/" class="btn btn-neutral float-right" title="Final word">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Git/" class="btn btn-neutral" title="Git"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../Git/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../final_word/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
