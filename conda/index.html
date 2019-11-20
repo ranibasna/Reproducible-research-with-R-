@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Conda - Reproducible Research with R</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Conda";
+    var mkdocs_page_input_path = "conda.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Reproducible Research with R</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Conda</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#welcome-to-reproducible-research-with-r">Welcome to reproducible research with R</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#project-layout">Project layout</a></li>
+        
+            <li><a class="toctree-l3" href="#installing-conda-package-manager">Installing Conda package manager</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#creating-a-conda-environment-for-r">Creating a conda environment for R</a></li>
+    
+
+    <li class="toctree-l2"><a href="#opening-rstudio-within-the-r-conda-environment">Opening RStudio within the R conda environment</a></li>
+    
+
+    <li class="toctree-l2"><a href="#how-to-make-your-project-reproducible-with-conda-environment">How to make your project reproducible with Conda environment</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Git/">Git</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Rmarkdown/">Rmarkdown</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../final_word/">Final word</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../about.md">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Reproducible Research with R</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Conda</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="welcome-to-reproducible-research-with-r">Welcome to reproducible research with R</h1>
+<h2 id="project-layout">Project layout</h2>
+<pre><code>mkdocs.yml    # The configuration file.
+docs/
+    index.md  # The documentation homepage.
+    ...       # Other markdown pages, images and other files.
+</code></pre>
+<h2 id="installing-conda-package-manager">Installing Conda package manager</h2>
+<pre><code>*** Install Miniconda3 for 64-bit macOS ***
+curl https://repo.continuum.io/miniconda/Miniconda3-4.7.12-MacOSX-x86_64.sh -O
+bash Miniconda3-4.7.12-MacOSX-x86_64.sh
+rm Miniconda3-4.7.12-MacOSX-x86_64.sh
+
+*** Install Miniconda3 for 64-bit Linux ***
+
+curl https://repo.continuum.io/miniconda/Miniconda3-4.7.12-Linux-x86_64.sh -O
+bash Miniconda3-4.7.12-Linux-x86_64.sh
+rm Miniconda3-4.7.12-Linux-x86_64.sh
+</code></pre>
+<ul>
+<li>
+<p>The installer will ask you questions during the installation:</p>
+<ul>
+<li>do you accept the license terms? (Yes)</li>
+<li>do you accept the installation path or do you want to chose a different one? (Probably yes)</li>
+<li>do you want to run conda init to setup conda on your system? (Yes)</li>
+</ul>
+</li>
+<li>
+<p>Either restart your shell so the settings in <code>~/.bashrc/~/.bash_profile</code> can take effect, or <code>source ~/.bashrc/~/.bash_profile</code>.</p>
+</li>
+<li>
+<p>Once you have miniconda installed, check the version.</p>
+<pre><code>conda --version # which version you are running.
+which conda # Location on your computer.
+</code></pre>
+</li>
+</ul>
+<h1 id="creating-a-conda-environment-for-r">Creating a conda environment for R</h1>
+<ul>
+<li>
+<p>To use R in an environment, all you need to do is install the r-base package. This will install the latest R version.
+We can creat R environment with the following command:</p>
+<pre><code>conda create -n r-env r-base=3.6.1
+type R to check the R version. (it should be 3.6.1 (2019-07-05))
+Quit R quit() or q().
+</code></pre>
+</li>
+<li>
+<p>if you want you can create a new conda environment with all the r-essentials conda packages built from CRAN: (Do not do it now for time sake)</p>
+<pre><code>conda create -n r_env r-essentials r-base
+</code></pre>
+</li>
+<li>
+<p>Activate the environment:</p>
+<pre><code>conda activate r_env
+</code></pre>
+</li>
+<li>
+<p>to install a specific package:</p>
+<pre><code>conda install -c r package-name.
+</code></pre>
+</li>
+<li>
+<p>Conda’s R packages are available from the R channel of Anaconda Cloud, which is included by default in Conda’s default_channels list, so you don’t need to specify the R channel when installing R packages like, say, tidyverse.</p>
+<pre><code> conda activate r-env
+(r-env)  conda install r-tidyverse=1.2.1 (test this!)
+</code></pre>
+</li>
+<li>
+<p>List the packages in the environment:</p>
+<pre><code>        conda list
+</code></pre>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can also search for any R package if you know the name, such as <code>conda search -f r-EXACTNAME</code>. Replace EXACTNAME with the desired CRAN or MRAN R package name. For example, for rbokeh, you would use <code>conda search -f r-rbokeh</code>.
+Also, Find out what versions of r-factominer are available in the bioconda channel using <code>conda search -c conda-forge r-factominer</code>.</p>
+</div>
+<ul>
+<li>
+<p>remove a package form the environment</p>
+<pre><code>conda remove r-tidyverse
+</code></pre>
+</li>
+<li>
+<p>if you want to install an older version of R you can search within conda for all older versions (Do not do it now for time sake)</p>
+<ul>
+<li><code>conda search r-base</code> or <code>conda search -c r r</code></li>
+<li>create environment <code>conda create -n r_env</code></li>
+<li>install the the package with conda <code>conda install -c conda-forge r=3.4.1</code>.</li>
+</ul>
+</li>
+<li>
+<p>To see all your environments you can run:</p>
+<pre><code>    conda info --envs
+</code></pre>
+</li>
+<li>
+<p>To remove environment</p>
+<pre><code>conda env remove -n env_name
+</code></pre>
+</li>
+<li>
+<p>Some package groups require installation through a different conda channel. Two of the main ones I use are bioconductor Bioconda and conda-forge. Next, we will setup the the default channels (from where packages will be searched for and downloaded if no channel is specified).</p>
+<pre><code>Type these commands in this exact order:
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+</code></pre>
+</li>
+</ul>
+<h1 id="opening-rstudio-within-the-r-conda-environment">Opening RStudio within the R conda environment</h1>
+<ul>
+<li>
+<p>To run RStudio in our environment, we can use the single-line conda command(this will install the latest version of RStudio)</p>
+<pre><code>conda install -c r rstudio
+</code></pre>
+</li>
+<li>
+<p>Launch RStudio by typing rstudio. The first line in the RStudio console should be the same as when we launched R from the command line directly R version 3.6.1 (2019-07-05). To close RStudio, you can close RStudio itself, or CTRL+C in the terminal from where you launched it.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>note that it is different</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>do not</p>
+</div>
+<ul>
+<li>After making a few different environments and installing a bunch of packages, Conda can take up some disk space. You can remove unnecessary files with the command:<pre><code>conda clean -a
+</code></pre>
+</li>
+</ul>
+<h1 id="how-to-make-your-project-reproducible-with-conda-environment">How to make your project reproducible with Conda environment</h1>
+<p>We have up until now specified which Conda packages to install directly on the command line using the <code>conda create</code> and <code>conda install</code> commands. For working in projects this is not the recommended way. Instead, for increased control and reproducibility, it is better to use a file (in yaml format) specifying packages, versions and channels needed to create the environment for a project.</p>
+<ul>
+<li>
+<p>Creat a new environment and installing packages:</p>
+<pre><code>conda create -n r_env r-essentials r-base
+conda install -c r rstudio
+conda install -c conda-forge r-factoextra
+</code></pre>
+</li>
+<li>
+<p>Go a head and run the following command within your current directory</p>
+<pre><code>Rscript clustering_code/cluster_code.R CsvData/USArrests.csv Results/clustering_result.csv
+</code></pre>
+</li>
+<li>
+<p>You can see that we now inside the results folder we have a CSV file that contain the data with the resulting clusters.</p>
+</li>
+<li>
+<p>We will now run the clustering code r file which is already written in the file clustering_code. But in order for us to assure reproducibility of the environment we will build a file that assure such approach. The easiest way to make your work reproducible by others is to include a file in your project’s root directory listing all the packages, along with their version numbers, that are installed in your project’s environment. Conda calls these environment files.</p>
+</li>
+<li>
+<p>you can make the <code>environment.yml</code> file in the following way:</p>
+<pre><code>(conda-env) % conda env export --file environment.yml       # Or -f
+</code></pre>
+</li>
+<li>
+<p>you can also make this environment file manually by adding the necessary packages one by one. So for example we make the <code>environment.yml</code> file in the following way:</p>
+<pre><code>channels:
+    - conda-forge
+    - bioconda
+dependencies:
+    - r-base=3.6.1
+    - r-essentials=3.6
+    - r-factominer=1.42
+    - r-factoextra=1.0.5
+</code></pre>
+</li>
+<li>
+<p>Once you created the environment file, you can make a new Conda environment from the yaml file which is identical to the one we have reproducing our environment. (note that here the command is conda env create as opposed to conda create that we used above):</p>
+<pre><code>conda env create -n r_env2 -f environment.yml
+</code></pre>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul>
+<li>
+<p>Restoring environment to a previous revision: Conda keeps a history of all the changes made to your environment, so you can easily "roll back" to a previous version. (this is very import in case you make some error by installing a wrong package or mess up with something instead of removing the environment and state from the begining).</p>
+</li>
+<li>
+<p>To list the history of each change to the current environment:</p>
+<pre><code>conda list --revisions
+</code></pre>
+</li>
+<li>
+<p>To restore environment to a previous revision:</p>
+<pre><code>conda install --rev REVNUM
+</code></pre>
+</li>
+<li>
+<p>NOTE: Replace REVNUM with the revision number.    </p>
+</li>
+</ul>
+</div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Git/" class="btn btn-neutral float-right" title="Git">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Git/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

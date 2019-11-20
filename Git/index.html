@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Git - Reproducible Research with R</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Git";
+    var mkdocs_page_input_path = "Git.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Reproducible Research with R</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../conda/">Conda</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Git</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#introduction-to-git">Introduction to Git</a></li>
+    
+
+    <li class="toctree-l2"><a href="#git-commands">Git commands</a></li>
+    
+
+    <li class="toctree-l2"><a href="#get-started-with-git">Get started with Git</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#pushing-changes-to-the-remote-repository">Pushing changes to the remote Repository</a></li>
+        
+            <li><a class="toctree-l3" href="#branching-with-git">Branching with Git</a></li>
+        
+            <li><a class="toctree-l3" href="#merging">Merging</a></li>
+        
+            <li><a class="toctree-l3" href="#conflicts">Conflicts</a></li>
+        
+            <li><a class="toctree-l3" href="#ignoring-files">Ignoring files</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#git-with-r-and-rstudio">Git with R and Rstudio</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Rmarkdown/">Rmarkdown</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../final_word/">Final word</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../about.md">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Reproducible Research with R</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Git</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="introduction-to-git">Introduction to Git</h1>
+<p>Git is a widely used system (both in academia and industry) for version controlling files and collaborating on code. It is used to track changes in (text) files, thereby establishing a history of all edits made to each file, together with short messages about each change and information about who made it. Git is mainly run from the command line, but there are several tools that have implemented a graphical user interface to run git commands.</p>
+<p>Using version control for tracking your files, and edits to those, is an essential step in making your computational research reproducible. A typical git workflow consists of:</p>
+<ul>
+<li>making distinct and related edits to one or several files</li>
+<li>committing those changes (i.e. telling git to add those edits to the history, together with a message about what those changes involve)</li>
+<li>and pushing the commit to a remote repository (i.e. syncing your local project directory with one in the cloud)</li>
+</ul>
+<p>There are many benefits of using git in your research project:</p>
+<ul>
+<li>You are automatically forced into a more organized way of working, which is usually a first step towards reproducibility.</li>
+<li>If you have made some changes to a file and realize that those were probably not a good idea after all, it is simple to view exactly what the changes were and revert them.</li>
+<li>If there is more than one person involved in the project, git makes it easy to collaborate by tracking all edits made by each person. It will also handle any potential conflicting edits.</li>
+<li>Using a cloud-based repository hosting service (the one you push your commits to), like e.g. Github or Bitbucket, adds additional features, such as being able to discuss the project, comment on edits, or report issues.</li>
+<li>At some point your project will be published. Github or Bitbucket (or similar) are excellent places to publicly distribute your code. Other researchers can then use git to access the code needed for reproducing your results, in exactly the state it was when used for the publication.</li>
+<li>If needed, you can host private repositories on Github and Bitbucket as well. This may be convenient during an ongoing research project, before it is publicly published.</li>
+</ul>
+<p>The best way to get an idea about git is simply to start using it. The tutorial below will guide you through the essential steps, with a focus on what is needed for making a project reproducible. There are many additional features of both git and the web-based repository hosting services (like Github and Bitbucket) that are not included here. If you are interested in learning more, the web is filled with information (see some examples below)!</p>
+<h1 id="git-commands">Git commands</h1>
+<ul>
+<li>git init: Create an empty Git repository or reinitialize an existing one. Can be used to convert an unversioned project o a git repository or initialize a new empty repository. Until you run this command inside a repository or directory, it’s just a regular folder. Only after you input this does it accept further Git commands.</li>
+<li>git config: Get and set repository or global options. it is used for configuration of git for the first time.</li>
+<li>git status:  Show the working tree status. See which files are inside it, which changes still need to be committed, and which branch of the repository you’re currently working on.</li>
+<li>git add: Add file contents to the index.</li>
+<li>
+<p>git commit: Git’s most important command. After you make any sort of change, you input this in order to take a “snapshot” of the repository. Usually it goes git commit -m “Message here.” The -m indicates that the following section of the command should be read as a message.</p>
+</li>
+<li>
+<p>git branch: Working with multiple collaborators and want to make changes on your own? This command will let you build a new branch, or timeline of commits, of changes and file additions that are completely your own. Your title goes after the command. If you wanted a new branch called “cats,” you’d type git branch cats.</p>
+</li>
+<li>
+<p>git checkout: Literally allows you to “check out” a repository that you are not currently inside. This is a navigational command that lets you move to the repository you want to check. You can use this command as git checkout master to look at the master branch, or git checkout cats to look at another branch.</p>
+</li>
+<li>
+<p>git merge: When you’re done working on a branch, you can merge your changes back to the master branch, which is visible to all collaborators. git merge cats would take all the changes you made to the “cats” branch and add them to the master.</p>
+</li>
+<li>
+<p>git push: If you’re working on your local computer, and want your commits to be visible online on GitHub as well, you “push” the changes up to GitHub with this command.</p>
+</li>
+<li>
+<p>git pull: If you’re working on your local computer and want the most up-to-date version of your repository to work with, you “pull” the changes down from GitHub with this command.</p>
+</li>
+</ul>
+<h1 id="get-started-with-git">Get started with Git</h1>
+<ul>
+<li>
+<p>Install Git
+Chances are that you already have git installed on your computer. You can check by running e.g. <code>git --version</code>. If you don't have git, install it following the instructions <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">here</a></p>
+</li>
+<li>
+<p>Configure Git:
+Now it’s time to go over to the command line. On Windows, that means starting the Git Bash app you just installed, and on OS X, it’s regular old Terminal. It’s time to introduce yourself to Git. Type in the following code:</p>
+<pre><code>git config --global user.name "Your Name Here"
+</code></pre>
+</li>
+</ul>
+<p>Of course, you’ll need to replace “Your Name Here” with your own name in quotations. It can be your legal name, your online handle, anything. Git doesn’t care, it just needs to know to whom to credit commits and future projects.</p>
+<p>Next, tell it your email and make sure it’s the same email you used when you signed up for a GitHub.com account just a moment ago. Do it like this:</p>
+<pre><code>    git config --global user.email "your_email@youremail.com"
+</code></pre>
+<p>That’s all you need to do to get started using Git on your computer. However, since you did set up a GitHub.com account, it’s likely you don’t just want to manage your project locally, but also online. If you want you can also set up Git so it doesn’t ask you to log in to your GitHub.com account every time you want to talk to it. For the purposes of this tutorial, it isn’t a big deal since we’ll only be talking to it once. The full tutorial to do this, however, is located on <a href="https://help.github.com/en/github/getting-started-with-github/set-up-git">GitHub</a>.</p>
+<ul>
+<li>Creating Your Online Repository
+Now that you’re all set up, it’s time to create a place for your project to live. Both Git and GitHub refer to this as a repository, or “repo” for short, a digital directory or storage space where you can access your project, its files, and all the versions of its files that Git saves.</li>
+</ul>
+<p>Go back to GitHub.com and click the tiny book icon next to your username. Or, go to the new repository page if all the icons look the same. Give your repository a short, memorable name. Go ahead and make it public or private.</p>
+<p>Skip the  initiate a README.md file option. Don’t worry about clicking the checkbox next to “Initialize this repository with a README.” A Readme file is usually a text file that explains a bit about the project. But you can make your own Readme file locally for practice later.</p>
+<p>Click the green “Create Repository” button and you’re set. You now have an online space for your project to live in.</p>
+<ul>
+<li>
+<p>creat your local repository</p>
+<ul>
+<li>navigate to the directory where you want to locate your project.</li>
+<li>on terminal use mkdir to create a directory name it for example myR_project.</li>
+<li>cd to myR_project</li>
+<li>type <code>git init</code></li>
+</ul>
+</li>
+<li>
+<p>Your computer now realizes this directory is Git-ready, and you can start inputting Git commands. Now you’ve got both an online and a local repo for your project to live inside.</p>
+</li>
+<li>
+<p>Now let us check the current status for our project, run <code>git status</code>. It will state that there are untracked files and suggests for you to use git add to include in what will be committed.</p>
+</li>
+<li>
+<p>try to add one of the files. For instance run <code>git add clustering_code</code> then run again <code>git status</code>.</p>
+</li>
+<li>
+<p>You can also add multiple files in one command. For example, run <code>git add Documentation Results/</code></p>
+</li>
+<li>
+<p>You might as well add all files in one go! Use <code>git add</code> on the remaining files</p>
+</li>
+<li>
+<p>We are now ready to commit! Run:</p>
+<pre><code>git commit -m "adding the first set of files"
+</code></pre>
+</li>
+<li>
+<p>modify any file with harmless changes, then run <code>git status</code>. What is the current status? As you can see git already catch the modification you did.</p>
+</li>
+<li>
+<p>Run <code>git diff file_name</code> use the name of the file you did a modification on instead of file_name. . A <code>-</code> means a deleted line, a <code>+</code> means an added line. There are also shown a few lines before and after the changes, to put them in context. Do tow another harmless modification in two different files. Run <code>git status</code>. Now run <code>git diff</code>. If we don't specify a file, it will show all changes made in any file,  compared to the previous commit. Do you see your changes?.</p>
+</li>
+<li>
+<p>Now as before git add the two files in one command and then git commit each of them in a separate command. This is a best practics as we want to optimally each commit to be a specified set of changes?</p>
+</li>
+<li>
+<p>To see a history of our changes so far, run:</p>
+<pre><code>git log
+</code></pre>
+</li>
+<li>
+<p>You can use <code>git rm file_name</code> to remove a file (this can be seen as a combination of two steps <code>rm file_name</code> then <code>git add file_name</code>)
+let us remove clusterimg_result. Run <code>git rm Results/cluster_result</code>. This will add the removing to the staging area. Now you can commit the removal. You can see that directory Results does not exists anymore.</p>
+</li>
+</ul>
+<h2 id="pushing-changes-to-the-remote-repository">Pushing changes to the remote Repository</h2>
+<p>Normally, you sit on your computer an work on a project. you commit changes as you go. At some point (usually when you feel that you have added some new features to the project) you can push these changes to the remote (Online) repository.</p>
+<ul>
+<li>
+<p>Since you haven’t connected to the GitHub repo yet, your computer doesn’t even know this exists. So tell your local repository about it:</p>
+<pre><code>git remote add origin https://github.com/123WebDesign/icecream.git
+</code></pre>
+</li>
+<li>
+<p>you can now push the changes to the remote repository (usually called the master branch)</p>
+<pre><code>git push -u origin master
+</code></pre>
+</li>
+<li>
+<p>If you go to your github project page you can see that all the files are their. Also, they are on lated version. You can check that.</p>
+</li>
+</ul>
+<h2 id="branching-with-git">Branching with Git</h2>
+<ul>
+<li>branching is an operation that let you work on some features of the project in an isolated manner of the master branch. This effectly means that your work in the new branch will not affect the main project files.  You can as ell use branchs to fix a problem that appear in the project. This allow you to work in peace knowing that your stable version is in safe. When you feel that the new feature (you are developing using a new branch) is a good stable state you can merge it with the master branch and it will be part of the project.</li>
+</ul>
+<p><img alt="" src="../01.svg" /></p>
+<ul>
+<li>The diagram above visualizes a repository with two isolated lines of development, one for a little feature, and one for a longer-running feature. By developing them in branches, it’s not only possible to work on both of them in parallel, but it also keeps the main master branch free from questionable code.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that it is more effecint to use branching when you are collaborating with others on a project. Since you may want to develop a new feature while letting otheres keep pushing to the master branch.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It's important to understand that branches are just pointers to commits. When you create a branch, all Git needs to do is create a new pointer, it doesn’t change the repository in any other way. The repository history remains unchanged.</p>
+</div>
+<ul>
+<li>To create a branch you run:<pre><code>git branch branch_name
+# you can try
+git branch new_branch
+# check the branches
+git branch
+</code></pre>
+<ul>
+<li>you see a star beside the branch you are currently inside.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may want to work with others on the new branch, this is beyond our course scope. However,  you can create a remote branch. Similar to what we before, we need to tell that we add a rempte branch. In the follwoing commands we create and push a copy of the local branch to the remote repo.</p>
+<pre><code>    $ git remote add new_branch-remote-repo `github url`
+    # Add remote repo to local repo config
+    $ git push &lt;new_branch-remote-repo&gt; branch_name~
+    # pushes the branch_name  branch to new-remote-repo
+</code></pre>
+</div>
+<ul>
+<li>
+<p>you can delete the branch by running</p>
+<pre><code>git branch -d branch_name
+</code></pre>
+</li>
+<li>
+<p>However, if the branch hasn’t been merged, the above command will output an error message. To force the delation run</p>
+<pre><code>git branch -D branch_name
+</code></pre>
+</li>
+<li>
+<p>The previous commands will delete a local copy of a branch. The branch may still exist in remote repos. To delete a remote branch execute the following.</p>
+<pre><code>git push origin --delete branch_name
+</code></pre>
+</li>
+<li>
+<p>checking out branch (switch between branches): The git checkout command lets you navigate between the branches created by git branch. Checking out a branch updates the files in the working directory to match the version stored in that branch, and it tells Git to record all new commits on that branch. Think of it as a way to select which line of development you’re working on.</p>
+<pre><code># you can try
+git checkout new_branch
+git branch # to varify that you are now moved to the new branch
+</code></pre>
+</li>
+<li>
+<p>The git checkout command accepts a -b argument that acts as a convenience method which will create the new branch and immediately switch to it. You can work on multiple features in a single repository by switching between them with git checkout.</p>
+<pre><code>git checkout -b new_branch
+</code></pre>
+</li>
+</ul>
+<h2 id="merging">Merging</h2>
+<ul>
+<li>
+<p>The git merge command lets you take the independent lines of development created by git branch and integrate them into a single branch. Suppose that after running tests and adding new things you are satisfied with the your new feature that you are develpoing on your new branch. it is now the time to merge with the master branch.  You do this with the git merge command (after checking out to the master branch):</p>
+<pre><code>git checkout master
+git merge new_branch
+</code></pre>
+</li>
+<li>
+<p>it is important to distinguish between twoo type of merges that git performe.</p>
+</li>
+<li>
+<p>A fast-forward merge can occur when there is a linear path from the current branch tip to the target branch. Instead of “actually” merging the branches, all Git has to do to integrate the histories is move (i.e., “fast forward”) the current branch tip up to the target branch tip. This effectively combines the histories, since all of the commits reachable from the target branch are now available through the current one. For example, a fast forward merge of some-feature into master would look something like the following:</p>
+</li>
+</ul>
+<p><img alt="" src="../07.svg" /></p>
+<ul>
+<li>However, a fast-forward merge is not possible if the branches have diverged. When there is not a linear path to the target branch, Git has no choice but to combine them via a 3-way merge. 3-way merges use a dedicated commit to tie together the two histories. The nomenclature comes from the fact that Git uses three commits to generate the merge commit: the two branch tips and their common ancestor.</li>
+</ul>
+<p><img alt="" src="../08.svg" /></p>
+<h2 id="conflicts">Conflicts</h2>
+<ul>
+<li>
+<p>If the two branches you're trying to merge both changed the same part of the same file, Git won't be able to figure out which version to use. When such a situation occurs, it stops right before the merge commit so that you can resolve the conflicts manually.</p>
+</li>
+<li>
+<p>We will demonstrate a simple case here. But this can go also with the branches.</p>
+</li>
+<li>
+<p>We will now learn how to manage conflicts. This is important to know, since it will probably happen sooner or later. It can get a bit tricky, but the important thing is not to panic! :)</p>
+</li>
+</ul>
+<p>On the github web page, navigate to clustering_code and click on clustering_code.R and click Edit. We can now edit this file directly on the web. This is generally not recommended, but we will do it here to demonstrate a point.
+Let's just add a comment inside the file. Do that:</p>
+<pre><code>    # adding a comment inside the clustering_code file
+</code></pre>
+<p>Click Commit. Add the commit message: "adding a comment inside the clustering_code file". Click Commit.
+Click Commits to the left to see the commit history, and your latest change at the top.
+Now we have a change in the remote repository that is not yet in our local clone. This could happen for instance if a collaborator of yours committed a change and pushed it to github.</p>
+<p>Go back to your local terminal. Run git status. Notice that git says: "Your branch is up-to-date with 'origin/master'.". This is of course not true, but our local git clone is not yet aware of the remote changes. We will get those changes soon.
+But first, we will edit clustering_code.R locally as well! (It may be the case that your collaborator thought it was good to use different coding function or different approach, but neither of you communicated that to the other.) Use a text editor and change the the same chenges at the same line.</p>
+<p>Commit your change (use git status along the way if you want to check what is happening in the different steps):
+git status
+git add clustering_code.R
+git status
+git commit -m "adding a comment inside the clustering_code file"
+git status
+Now let's try to push this commit!
+git push</p>
+<ul>
+<li>
+<p>Read the error message. It should be fairly informative of what is going on. In essence it will not allow you to push since there are conflicting changes made to the remote repository.</p>
+</li>
+<li>
+<p>We will now download the changes made to the remote:</p>
+<pre><code>git fetch
+</code></pre>
+</li>
+<li>
+<p>Now run <code>git status</code>. Unlike before, our local git clone now is aware of the latest changes pushed to the remote. It will tell you something along the lines: "Your branch and 'origin/master' have diverged, and have 1 and 1 different commit each, respectively.".</p>
+</li>
+<li>
+<p>Now, since we ran <code>git fetch</code> our local git has up-to-date information about the status of the remote repository. We can therefore run the following to see what the difference is between the current state of our local clone and the master branch on the remote origin:</p>
+<pre><code>git diff origin/master
+</code></pre>
+</li>
+<li>
+<p>Now let's try to integrate the remote changes with our local changes and get up to sync with the remote:</p>
+<pre><code>git pull
+</code></pre>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Note that you can skip the <code>git fetch</code>command if you want to and run <code>git pull</code> directly. The difference is that fetch will just update git with the latest information of the remote status, whereas pull will try to integrate and sync those changes to your local clone directly.</p>
+</div>
+<ul>
+<li>
+<p>As you have probably noticed, the git pull command resulted in a conflict. Git tells us about this and suggests that we should fix the conflicts and commit that. As always, run git status to get an overview! You will see that you have, so called, unmerged paths and that the conflicting file is clustering_code.R, since both modified the same line in this file. To fix a conflict, open the affected file in a text editor. You will see that it now looks different.</p>
+</li>
+<li>
+<p>Think of these new lines as "conflict dividers". The ======= line is the "center" of the conflict. All the content between the center and the &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD line is content that exists in the local branch origin which the HEAD ref is pointing to. Alternatively all content between the center and &gt;&gt;&gt;&gt;&gt;&gt;&gt; d9b35ef61d2fde56fcbd64aacb10a96098c67cbf (The long sequence of characters is the commit id) is content that is present in our remote branch master.</p>
+</li>
+<li>
+<p>The most direct way to resolve a merge conflict is to edit the conflicted file. Open the clustering_code file in your favorite editor. For our example lets simply remove all the conflict dividers and choose the comment that you want (in this case you may to discuss with your cloaborators about the best way to go around this as usually it is much more than comment). The modified clustering_code.R content.</p>
+</li>
+<li>
+<p>Once the file has been edited use git add clustering_code.R to stage the new merged content. To finalize the merge create a new commit by executing:</p>
+<pre><code>git commit -m"merged and resolved the conflict in clustering_code.R"
+</code></pre>
+</li>
+<li>
+<p>Git will see that the conflict has been resolved and creates a new merge commit to finalize the merge.</p>
+</li>
+</ul>
+<h2 id="ignoring-files">Ignoring files</h2>
+<ul>
+<li>
+<p>Git is aware of all files within the repository. However, it is not uncommon to have files that we don't want git to track. For instance, our analysis might produce several intermediate files and results. We typically don't track such files. Rather, we want to track the actual code and other related files (e.g. configuration files) that produce the intermediate and result files, given the raw input data.</p>
+</li>
+<li>
+<p>To tell git what files to ignore we use a file called .gitignore. Let's create it:</p>
+<pre><code>touch .gitignore
+</code></pre>
+</li>
+<li>
+<p>Open the .gitignore file in an editor and add the following lines to it:</p>
+<pre><code># Ignore these directories:
+CsvData/
+
+# Ignore temporary files:
+.Rhistory
+.DS_Store
+</code></pre>
+</li>
+<li>
+<p>Run git status again. Now there is no mention of the results and intermediate directories or the log.tmp file. Notice that we can use wildcards (<code>*</code>) to ignore files with a given pattern, e.g. a specific extension.</p>
+</li>
+<li>
+<p>Go ahead and add, commit, and push the .gitignore file.</p>
+</li>
+</ul>
+<h1 id="git-with-r-and-rstudio">Git with R and Rstudio</h1>
+<ul>
+<li>
+<p>We assume the following:</p>
+<ul>
+<li>You’ve registered a free GitHub account.</li>
+<li>You’ve installed/updated R and RStudio.</li>
+<li>You’ve installed Git.</li>
+<li>You’ve introduced yourself to Git.</li>
+<li>You’ve confirmed that you can push to / pull from GitHub from the command line.</li>
+</ul>
+</li>
+<li>
+<p>Follow the steps:</p>
+<ul>
+<li>File &gt; New Project &gt; Version Control &gt; Git. In “Repository URL”, paste the URL of your new GitHub repository. It will be something like this https://github.com/your-name/your-repo.git.</li>
+<li>fill in the project directory name, e.g. myrepo, which coincides with the GitHub repo name.</li>
+<li>I suggest you check “Open in new session”, (if you are doing something else in your current session) as that’s what you’ll usually do in real life.</li>
+<li>Click “Create Project”</li>
+</ul>
+</li>
+<li>
+<p>From RStudio, modify the any file by adding the any line for instance, “This is an editing from RStudio”. Save your changes.</p>
+</li>
+<li>
+<p>Commit these changes to your local repo. How? From RStudio:</p>
+<ul>
+<li>Click the “Git” tab in upper right pane.</li>
+<li>Check “Staged” box for any file.</li>
+<li>If you’re not already in the Git pop-up, click “Commit”.</li>
+<li>Type a message in “Commit message”, such as “Commit from RStudio”.</li>
+<li>Click “Commit”.</li>
+</ul>
+</li>
+<li>
+<p>Pushing from RStudio: Click the green “Push” button to send your local changes to GitHub. If you are challenged for username and password, provide them (confirm from command line and the gitrepo the changes). </p>
+</li>
+</ul>
+<p><img alt="" src="../image.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Rmarkdown/" class="btn btn-neutral float-right" title="Rmarkdown">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../conda/" class="btn btn-neutral" title="Conda"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../conda/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Rmarkdown/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
