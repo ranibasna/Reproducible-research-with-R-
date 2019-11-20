@@ -7,7 +7,8 @@ params:
   Rows_num : 5
 ---
 
-```{r loadlib, include=FALSE}
+
+```{r loadlib, include=TRUE}
 # loeading 
 library(factoextra)
 #library("NbClust")
