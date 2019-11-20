@@ -1,13 +1,5 @@
 # Welcome to reproducible research with R
 
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-
 ## Installing Conda package manager
 
     *** Install Miniconda3 for 64-bit macOS ***
