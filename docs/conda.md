@@ -117,6 +117,10 @@ We can creat R environment with the following command:
 !!! danger
     do not
 
+* After making a few different environments and installing a bunch of packages, Conda can take up some disk space. You can remove unnecessary files with the command:
+
+        conda clean -a
+
 
 # How to make your project reproducible with Conda environment
 

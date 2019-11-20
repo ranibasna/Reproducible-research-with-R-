@@ -3,7 +3,8 @@ nav:
     - Home: index.md
     - Conda: conda.md
     - Git: Git.md
-    - Rmarkdown: Rmarkdown.md 
+    - Rmarkdown: Rmarkdown.md
+    - Final word: final_word.md
     - About: about.md
 theme: readthedocs
 markdown_extensions:
