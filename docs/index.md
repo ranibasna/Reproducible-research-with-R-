@@ -16,3 +16,11 @@ The overarching aim of this course is to provide a comprehensive survey of the f
     4. Working collaboratively.
     5. A reviewer wants you to change a model parameter.
     6. When you ﬁnd an error, but not sure where you went wrong.
+
+
+    * Preriquests for the course
+        - Being familiar with command line.
+        - mini conda installed.
+        - Git installed.
+        - familiriaty with R code is not essential but preferable.
+        - familiriaty with markdown language is a plus. 

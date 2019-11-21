@@ -304,7 +304,7 @@ git push
     - Type a message in “Commit message”, such as “Commit from RStudio”.
     - Click “Commit”.
 
-* Pushing from RStudio: Click the green “Push” button to send your local changes to GitHub. If you are challenged for username and password, provide them (confirm from command line and the gitrepo the changes). 
+* Pushing from RStudio: Click the green “Push” button to send your local changes to GitHub. If you are challenged for username and password, provide them (confirm from command line and the gitrepo the changes).
 
 
 
