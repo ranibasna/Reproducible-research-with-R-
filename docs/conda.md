@@ -1,17 +1,22 @@
 # Welcome to reproducible research with R
 
-## Installing Conda package manager
+## Installing Miniconda package manager
 
-    *** Install Miniconda3 for 64-bit macOS ***
-    curl https://repo.continuum.io/miniconda/Miniconda3-4.7.12-MacOSX-x86_64.sh -O
-    bash Miniconda3-4.7.12-MacOSX-x86_64.sh
-    rm Miniconda3-4.7.12-MacOSX-x86_64.sh
+* Please follow the direction [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
 
-    *** Install Miniconda3 for 64-bit Linux ***
+* you cal also follow the below direction
 
-    curl https://repo.continuum.io/miniconda/Miniconda3-4.7.12-Linux-x86_64.sh -O
-    bash Miniconda3-4.7.12-Linux-x86_64.sh
-    rm Miniconda3-4.7.12-Linux-x86_64.sh
+
+        *** Install Miniconda3 for 64-bit macOS ***
+        curl https://repo.continuum.io/miniconda/Miniconda3-4.7.12-MacOSX-x86_64.sh -O
+        bash Miniconda3-4.7.12-MacOSX-x86_64.sh
+        rm Miniconda3-4.7.12-MacOSX-x86_64.sh
+
+        *** Install Miniconda3 for 64-bit Linux ***
+
+        curl https://repo.continuum.io/miniconda/Miniconda3-4.7.12-Linux-x86_64.sh -O
+        bash Miniconda3-4.7.12-Linux-x86_64.sh
+        rm Miniconda3-4.7.12-Linux-x86_64.sh
 
 
 
@@ -20,6 +25,7 @@
     - do you accept the license terms? (Yes)
     - do you accept the installation path or do you want to chose a different one? (Probably yes)
     - do you want to run conda init to setup conda on your system? (Yes)
+
 
 * Either restart your shell so the settings in ```~/.bashrc/~/.bash_profile
     ``` can take effect, or ```source ~/.bashrc/~/.bash_profile```.
@@ -35,7 +41,7 @@
 
 
 * To use R in an environment, all you need to do is install the r-base package. This will install the latest R version.
-We can creat R environment with the following command:
+We can create R environment with the following command:
 
         conda create -n r-env r-base=3.6.1
         type R to check the R version. (it should be 3.6.1 (2019-07-05))
@@ -53,18 +59,22 @@ We can creat R environment with the following command:
 
         conda install -c r package-name.
 
+!!!Note    
+    The flag -n is for environment name, the flag -c is for channel name.
+
+
 * Conda’s R packages are available from the R channel of Anaconda Cloud, which is included by default in Conda’s default_channels list, so you don’t need to specify the R channel when installing R packages like, say, tidyverse.
 
          conda activate r-env
-        (r-env)  conda install r-tidyverse=1.2.1 (test this!)         
+        (r-env)  conda install r-tidyverse=1.2.1          
 
 * List the packages in the environment:
 
-                conda list
+        conda list
 
 !!! Tip
     You can also search for any R package if you know the name, such as ``` conda search -f r-EXACTNAME```. Replace EXACTNAME with the desired CRAN or MRAN R package name. For example, for rbokeh, you would use ``` conda search -f r-rbokeh```.
-    Also, Find out what versions of r-factominer are available in the bioconda channel using ```conda search -c conda-forge r-factominer```.
+    Also, Find out what versions of r-factominer are available in the bioconda channel using ```conda search -c conda-forge r-factominer``` you can seek more details by using conda search --help.
 
 
 * remove a package form the environment
@@ -79,7 +89,7 @@ We can creat R environment with the following command:
 
 * To see all your environments you can run:
 
-            conda info --envs
+        conda info --envs
 
 
 * To remove environment
@@ -89,7 +99,7 @@ We can creat R environment with the following command:
 * Some package groups require installation through a different conda channel. Two of the main ones I use are bioconductor Bioconda and conda-forge. Next, we will setup the the default channels (from where packages will be searched for and downloaded if no channel is specified).
 
         Type these commands in this exact order:
-        conda config --add channels defaults
+        conda config --add channels defaults ()
         conda config --add channels bioconda
         conda config --add channels conda-forge
 
@@ -103,8 +113,12 @@ We can creat R environment with the following command:
 
 * Launch RStudio by typing rstudio. The first line in the RStudio console should be the same as when we launched R from the command line directly R version 3.6.1 (2019-07-05). To close RStudio, you can close RStudio itself, or CTRL+C in the terminal from where you launched it.
 
+* Deactivate the current environment by running
+
+        conda deactivate
+
 !!! note
-    note that it is different
+    You can now remove the environments you created.
 
 !!! danger
     do not
@@ -116,30 +130,36 @@ We can creat R environment with the following command:
 
 # How to make your project reproducible with Conda environment
 
-We have up until now specified which Conda packages to install directly on the command line using the ```conda create``` and ```conda install``` commands. For working in projects this is not the recommended way. Instead, for increased control and reproducibility, it is better to use a file (in yaml format) specifying packages, versions and channels needed to create the environment for a project.
+We have up until now specified which Conda packages to install directly on the command line using the ```conda create``` and ```conda install``` commands. For working in projects this is not the recommended way. Instead, for increased control and reproducibility, it is better to use a file (in yaml format) specifying packages, versions, and channels needed to create the environment for a project.
 
 
 * Creat a new environment and installing packages:
 
         conda create -n r_env r-essentials r-base
+        conda activate r_env
         conda install -c r rstudio
         conda install -c conda-forge r-factoextra
 
+
+* initiate a git repository and git clone our our project using the following command
+
+        git clone https://github.com/ranibasna/Reproducible-research-with-R-.git
+        # if  you are using an ssh client then clone with using ssh
 
 * Go a head and run the following command within your current directory
 
         Rscript clustering_code/cluster_code.R CsvData/USArrests.csv Results/clustering_result.csv
 
-* You can see that we now inside the results folder we have a CSV file that contain the data with the resulting clusters.
+* You can see that we now inside the results folder we have a CSV file that contains the data with the resulting clusters.
 
-* We will now run the clustering code r file which is already written in the file clustering_code. But in order for us to assure reproducibility of the environment we will build a file that assure such approach. The easiest way to make your work reproducible by others is to include a file in your project’s root directory listing all the packages, along with their version numbers, that are installed in your project’s environment. Conda calls these environment files.
+* We will now run the clustering code r file which is already written in the file clustering_code. But in order for us to assure reproducibility of the environment, we will build a file that assures such an approach. The easiest way to make your work reproducible by others is to include a file in your project’s root directory listing all the packages, along with their version numbers, that are installed in your project’s environment. Conda calls these environment files.
 
-* you can make the ```environment.yml``` file in the following way:
+* You can make the ```environment.yml``` file in the following way:
 
         (conda-env) % conda env export --file environment.yml       # Or -f
 
 
-* you can also make this environment file manually by adding the necessary packages one by one. So for example we make the ```environment.yml``` file in the following way:
+* You can also make this environment file manually by adding the necessary packages one by one. So for example we make the ```environment.yml``` file in the following way:
 
         channels:
             - conda-forge
@@ -157,7 +177,7 @@ We have up until now specified which Conda packages to install directly on the c
 
 
 !!! Tip
-    * Restoring environment to a previous revision: Conda keeps a history of all the changes made to your environment, so you can easily "roll back" to a previous version. (this is very import in case you make some error by installing a wrong package or mess up with something instead of removing the environment and state from the begining).
+    * Restoring environment to a previous revision: Conda keeps a history of all the changes made to your environment, so you can easily "roll back" to a previous version. (this is very import in case you make some error by installing a wrong package or mess up with something instead of removing the environment and state from the beginning).
 
     * To list the history of each change to the current environment:
 
