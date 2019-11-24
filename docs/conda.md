@@ -158,6 +158,8 @@ We have up until now specified which Conda packages to install directly on the c
 
         (conda-env) % conda env export --file environment.yml       # Or -f
 
+* Go ahead and check the environment.yml file to see the structure.
+
 
 * You can also make this environment file manually by adding the necessary packages one by one. So for example we make the ```environment.yml``` file in the following way:
 

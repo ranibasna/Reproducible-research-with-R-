@@ -1,133 +1,150 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Conda - Reproducible Research with R</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+<html lang="en">
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Conda";
-    var mkdocs_page_input_path = "conda.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="../img/favicon.ico">
+
+    
+    <title>Conda - Reproducible Research with R</title>
+    
+
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../css/base.min.css" rel="stylesheet">
+    <link href="../css/cinder.min.css" rel="stylesheet">
+    <link href="../css/highlight.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+
+     
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body>
 
-  <div class="wy-grid-for-nav">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
 
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Reproducible Research with R</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Conda</a>
-    <ul class="subnav">
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
             
-    <li class="toctree-l2"><a href="#welcome-to-reproducible-research-with-r">Welcome to reproducible research with R</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#installing-conda-package-manager">Installing Conda package manager</a></li>
-        
-        </ul>
-    
 
-    <li class="toctree-l2"><a href="#creating-a-conda-environment-for-r">Creating a conda environment for R</a></li>
-    
+            <!-- Main title -->
 
-    <li class="toctree-l2"><a href="#opening-rstudio-within-the-r-conda-environment">Opening RStudio within the R conda environment</a></li>
-    
+            <a class="navbar-brand" href="..">Reproducible Research with R</a>
+        </div>
 
-    <li class="toctree-l2"><a href="#how-to-make-your-project-reproducible-with-conda-environment">How to make your project reproducible with Conda environment</a></li>
-    
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../Git/">Git</a>
+                    </li>
+                
+                
+                
+                    <li class="active">
+                        <a href="./">Conda</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../Rmarkdown/">Rmarkdown</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../final_word/">Final word</a>
+                    </li>
+                
+                
+                </ul>
 
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../Git/">Git</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../Rmarkdown/">Rmarkdown</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../final_word/">Final word</a>
-	    </li>
-          
-        </ul>
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Reproducible Research with R</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>Conda</li>
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
-  </ul>
-  <hr/>
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../Git/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../Rmarkdown/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
 </div>
-          <div role="main">
-            <div class="section">
-              
-                <h1 id="welcome-to-reproducible-research-with-r">Welcome to reproducible research with R</h1>
-<h2 id="installing-conda-package-manager">Installing Conda package manager</h2>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#welcome-to-reproducible-research-with-r">Welcome to reproducible research with R</a></li>
+            <li class="second-level"><a href="#installing-miniconda-package-manager">Installing Miniconda package manager</a></li>
+                
+        <li class="first-level "><a href="#creating-a-conda-environment-for-r">Creating a conda environment for R</a></li>
+        <li class="first-level "><a href="#opening-rstudio-within-the-r-conda-environment">Opening RStudio within the R conda environment</a></li>
+        <li class="first-level "><a href="#how-to-make-your-project-reproducible-with-conda-environment">How to make your project reproducible with Conda environment</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="welcome-to-reproducible-research-with-r">Welcome to reproducible research with R</h1>
+<h2 id="installing-miniconda-package-manager">Installing Miniconda package manager</h2>
+<ul>
+<li>
+<p>Please follow the direction <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html">here</a></p>
+</li>
+<li>
+<p>you cal also follow the below direction</p>
 <pre><code>*** Install Miniconda3 for 64-bit macOS ***
 curl https://repo.continuum.io/miniconda/Miniconda3-4.7.12-MacOSX-x86_64.sh -O
 bash Miniconda3-4.7.12-MacOSX-x86_64.sh
@@ -139,7 +156,7 @@ curl https://repo.continuum.io/miniconda/Miniconda3-4.7.12-Linux-x86_64.sh -O
 bash Miniconda3-4.7.12-Linux-x86_64.sh
 rm Miniconda3-4.7.12-Linux-x86_64.sh
 </code></pre>
-<ul>
+</li>
 <li>
 <p>The installer will ask you questions during the installation:</p>
 <ul>
@@ -162,7 +179,7 @@ which conda # Location on your computer.
 <ul>
 <li>
 <p>To use R in an environment, all you need to do is install the r-base package. This will install the latest R version.
-We can creat R environment with the following command:</p>
+We can create R environment with the following command:</p>
 <pre><code>conda create -n r-env r-base=3.6.1
 type R to check the R version. (it should be 3.6.1 (2019-07-05))
 Quit R quit() or q().
@@ -183,22 +200,28 @@ Quit R quit() or q().
 <pre><code>conda install -c r package-name.
 </code></pre>
 </li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The flag -n is for environment name, the flag -c is for channel name.</p>
+</div>
+<ul>
 <li>
 <p>Conda’s R packages are available from the R channel of Anaconda Cloud, which is included by default in Conda’s default_channels list, so you don’t need to specify the R channel when installing R packages like, say, tidyverse.</p>
 <pre><code> conda activate r-env
-(r-env)  conda install r-tidyverse=1.2.1 (test this!)
+(r-env)  conda install r-tidyverse=1.2.1
 </code></pre>
 </li>
 <li>
 <p>List the packages in the environment:</p>
-<pre><code>        conda list
+<pre><code>conda list
 </code></pre>
 </li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>You can also search for any R package if you know the name, such as <code>conda search -f r-EXACTNAME</code>. Replace EXACTNAME with the desired CRAN or MRAN R package name. For example, for rbokeh, you would use <code>conda search -f r-rbokeh</code>.
-Also, Find out what versions of r-factominer are available in the bioconda channel using <code>conda search -c conda-forge r-factominer</code>.</p>
+Also, Find out what versions of r-factominer are available in the bioconda channel using <code>conda search -c conda-forge r-factominer</code> you can seek more details by using conda search --help.</p>
 </div>
 <ul>
 <li>
@@ -216,7 +239,7 @@ Also, Find out what versions of r-factominer are available in the bioconda chann
 </li>
 <li>
 <p>To see all your environments you can run:</p>
-<pre><code>    conda info --envs
+<pre><code>conda info --envs
 </code></pre>
 </li>
 <li>
@@ -227,7 +250,7 @@ Also, Find out what versions of r-factominer are available in the bioconda chann
 <li>
 <p>Some package groups require installation through a different conda channel. Two of the main ones I use are bioconductor Bioconda and conda-forge. Next, we will setup the the default channels (from where packages will be searched for and downloaded if no channel is specified).</p>
 <pre><code>Type these commands in this exact order:
-conda config --add channels defaults
+conda config --add channels defaults ()
 conda config --add channels bioconda
 conda config --add channels conda-forge
 </code></pre>
@@ -243,10 +266,15 @@ conda config --add channels conda-forge
 <li>
 <p>Launch RStudio by typing rstudio. The first line in the RStudio console should be the same as when we launched R from the command line directly R version 3.6.1 (2019-07-05). To close RStudio, you can close RStudio itself, or CTRL+C in the terminal from where you launched it.</p>
 </li>
+<li>
+<p>Deactivate the current environment by running</p>
+<pre><code>conda deactivate
+</code></pre>
+</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>note that it is different</p>
+<p>You can now remove the environments you created.</p>
 </div>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
@@ -258,13 +286,20 @@ conda config --add channels conda-forge
 </li>
 </ul>
 <h1 id="how-to-make-your-project-reproducible-with-conda-environment">How to make your project reproducible with Conda environment</h1>
-<p>We have up until now specified which Conda packages to install directly on the command line using the <code>conda create</code> and <code>conda install</code> commands. For working in projects this is not the recommended way. Instead, for increased control and reproducibility, it is better to use a file (in yaml format) specifying packages, versions and channels needed to create the environment for a project.</p>
+<p>We have up until now specified which Conda packages to install directly on the command line using the <code>conda create</code> and <code>conda install</code> commands. For working in projects this is not the recommended way. Instead, for increased control and reproducibility, it is better to use a file (in yaml format) specifying packages, versions, and channels needed to create the environment for a project.</p>
 <ul>
 <li>
 <p>Creat a new environment and installing packages:</p>
 <pre><code>conda create -n r_env r-essentials r-base
+conda activate r_env
 conda install -c r rstudio
 conda install -c conda-forge r-factoextra
+</code></pre>
+</li>
+<li>
+<p>initiate a git repository and git clone our our project using the following command</p>
+<pre><code>git clone https://github.com/ranibasna/Reproducible-research-with-R-.git
+# if  you are using an ssh client then clone with using ssh
 </code></pre>
 </li>
 <li>
@@ -273,18 +308,21 @@ conda install -c conda-forge r-factoextra
 </code></pre>
 </li>
 <li>
-<p>You can see that we now inside the results folder we have a CSV file that contain the data with the resulting clusters.</p>
+<p>You can see that we now inside the results folder we have a CSV file that contains the data with the resulting clusters.</p>
 </li>
 <li>
-<p>We will now run the clustering code r file which is already written in the file clustering_code. But in order for us to assure reproducibility of the environment we will build a file that assure such approach. The easiest way to make your work reproducible by others is to include a file in your project’s root directory listing all the packages, along with their version numbers, that are installed in your project’s environment. Conda calls these environment files.</p>
+<p>We will now run the clustering code r file which is already written in the file clustering_code. But in order for us to assure reproducibility of the environment, we will build a file that assures such an approach. The easiest way to make your work reproducible by others is to include a file in your project’s root directory listing all the packages, along with their version numbers, that are installed in your project’s environment. Conda calls these environment files.</p>
 </li>
 <li>
-<p>you can make the <code>environment.yml</code> file in the following way:</p>
+<p>You can make the <code>environment.yml</code> file in the following way:</p>
 <pre><code>(conda-env) % conda env export --file environment.yml       # Or -f
 </code></pre>
 </li>
 <li>
-<p>you can also make this environment file manually by adding the necessary packages one by one. So for example we make the <code>environment.yml</code> file in the following way:</p>
+<p>Go ahead and check the environment.yml file to see the structure.</p>
+</li>
+<li>
+<p>You can also make this environment file manually by adding the necessary packages one by one. So for example we make the <code>environment.yml</code> file in the following way:</p>
 <pre><code>channels:
     - conda-forge
     - bioconda
@@ -305,7 +343,7 @@ dependencies:
 <p class="admonition-title">Tip</p>
 <ul>
 <li>
-<p>Restoring environment to a previous revision: Conda keeps a history of all the changes made to your environment, so you can easily "roll back" to a previous version. (this is very import in case you make some error by installing a wrong package or mess up with something instead of removing the environment and state from the begining).</p>
+<p>Restoring environment to a previous revision: Conda keeps a history of all the changes made to your environment, so you can easily "roll back" to a previous version. (this is very import in case you make some error by installing a wrong package or mess up with something instead of removing the environment and state from the beginning).</p>
 </li>
 <li>
 <p>To list the history of each change to the current environment:</p>
@@ -321,53 +359,92 @@ dependencies:
 <p>NOTE: Replace REVNUM with the revision number.    </p>
 </li>
 </ul>
-</div>
-              
-            </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../Git/" class="btn btn-neutral float-right" title="Git">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
+</div></div>
+        
+        
     </div>
-  
 
-  <hr/>
+    <footer class="col-md-12 text-center">
+        
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
 
-  <div role="contentinfo">
-    <!-- Copyright etc -->
+        
+        
+    </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>var base_url = ".."</script>
     
-  </div>
+    <script src="../js/base.js"></script>
+    <script src="../search/main.js"></script>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-      
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
         </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../Git/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
+    </body>
 
-</body>
 </html>

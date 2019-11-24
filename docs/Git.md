@@ -18,15 +18,15 @@ There are many benefits of using git in your research project:
 - At some point your project will be published. Github or Bitbucket (or similar) are excellent places to publicly distribute your code. Other researchers can then use git to access the code needed for reproducing your results, in exactly the state it was when used for the publication.
 - If needed, you can host private repositories on Github and Bitbucket as well. This may be convenient during an ongoing research project, before it is publicly published.
 
-The best way to get an idea about git is simply to start using it. The tutorial below will guide you through the essential steps, with a focus on what is needed for making a project reproducible. There are many additional features of both git and the web-based repository hosting services (like Github and Bitbucket) that are not included here. If you are interested in learning more, the web is filled with information (see some examples below)!
+The best way to get an idea about git is simply to start using it. The tutorial below will guide you through the essential steps, with a focus on what is needed for making a project reproducible. There are many additional features of both git and the web-based repository hosting services (like Github and Bitbucket) that are not included here. If you are interested in learning more, the web is filled with information!
 
 
 # Git commands
-* git init: Create an empty Git repository or reinitialize an existing one. Can be used to convert an unversioned project o a git repository or initialize a new empty repository. Until you run this command inside a repository or directory, it’s just a regular folder. Only after you input this does it accept further Git commands.
+* git init: Create an empty Git repository or reinitialize an existing one. It can be used to convert an unversioned project o a git repository or initialize a new empty repository. Until you run this command inside a repository or directory, it’s just a regular folder. Only after you input this does it accept further Git commands.
 * git config: Get and set repository or global options. it is used for configuration of git for the first time.
 * git status:  Show the working tree status. See which files are inside it, which changes still need to be committed, and which branch of the repository you’re currently working on.
 * git add: Add file contents to the index.
-* git commit: Git’s most important command. After you make any sort of change, you input this in order to take a “snapshot” of the repository. Usually it goes git commit -m “Message here.” The -m indicates that the following section of the command should be read as a message.
+* git commit: Git’s most important command. After you make any sort of change, you input this in order to take a “snapshot” of the repository. Usually, it goes git commit -m “Message here.” The -m indicates that the following section of the command should be read as a message.
 
 * git branch: Working with multiple collaborators and want to make changes on your own? This command will let you build a new branch, or timeline of commits, of changes and file additions that are completely your own. Your title goes after the command. If you wanted a new branch called “cats,” you’d type git branch cats.
 
@@ -40,50 +40,72 @@ The best way to get an idea about git is simply to start using it. The tutorial 
 
 # Get started with Git
 
-* Install Git
+* Install Git:
 Chances are that you already have git installed on your computer. You can check by running e.g. ```git --version```. If you don't have git, install it following the instructions [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 
 * Configure Git:
-Now it’s time to go over to the command line. On Windows, that means starting the Git Bash app you just installed, and on OS X, it’s regular old Terminal. It’s time to introduce yourself to Git. Type in the following code:
+Now it’s time to go over to the command line. On Windows, that means starting the Git Bash app you installed, and on OS X, it’s regular old Terminal. It’s time to introduce yourself to Git. Type in the following code:
 
         git config --global user.name "Your Name Here"
 
-Of course, you’ll need to replace “Your Name Here” with your own name in quotations. It can be your legal name, your online handle, anything. Git doesn’t care, it just needs to know to whom to credit commits and future projects.
-
-Next, tell it your email and make sure it’s the same email you used when you signed up for a GitHub.com account just a moment ago. Do it like this:
+* Of course, you’ll need to replace “Your Name Here” with your own name in quotations. It can be your legal name, your online handle, anything. Git doesn’t care, it just needs to know to whom to credit commits and future projects.  
+&nbsp;
+* Next, tell it your email and make sure it’s the same email you used when you signed up for a GitHub.com account just a moment ago. Do it like this:
 
         git config --global user.email "your_email@youremail.com"
 
 
-That’s all you need to do to get started using Git on your computer. However, since you did set up a GitHub.com account, it’s likely you don’t just want to manage your project locally, but also online. If you want you can also set up Git so it doesn’t ask you to log in to your GitHub.com account every time you want to talk to it. For the purposes of this tutorial, it isn’t a big deal since we’ll only be talking to it once. The full tutorial to do this, however, is located on [GitHub](https://help.github.com/en/github/getting-started-with-github/set-up-git).
+* That’s all you need to do to get started using Git on your computer. However, since you did set up a GitHub.com account, it’s likely you don’t just want to manage your project locally, but also online. If you want you can also set up Git so it doesn’t ask you to log in to your GitHub.com account every time you want to talk to it. For the purposes of this tutorial, it isn’t a big deal since we’ll only be talking to it once. The full tutorial to do this, however, is located on [GitHub](https://help.github.com/en/github/getting-started-with-github/set-up-git).  
+&nbsp;  
 
+* Creating Your Online Repository now that you’re all set up, it’s time to create a place for your project to live. Both Git and GitHub refer to this as a repository, or “repo” for short, a digital directory or storage space where you can access your project, its files, and all the versions of its files that Git saves.  
+&nbsp;  
+* Go back to GitHub.com and click the tiny book icon next to your username. Or, go to the new repository page if all the icons look the same. Give your repository a short, memorable name. Go ahead and make it public or private.  
+&nbsp;  
 
-* Creating Your Online Repository
-Now that you’re all set up, it’s time to create a place for your project to live. Both Git and GitHub refer to this as a repository, or “repo” for short, a digital directory or storage space where you can access your project, its files, and all the versions of its files that Git saves.
-
-Go back to GitHub.com and click the tiny book icon next to your username. Or, go to the new repository page if all the icons look the same. Give your repository a short, memorable name. Go ahead and make it public or private.
-
-Skip the  initiate a README.md file option. Don’t worry about clicking the checkbox next to “Initialize this repository with a README.” A Readme file is usually a text file that explains a bit about the project. But you can make your own Readme file locally for practice later.
-
-Click the green “Create Repository” button and you’re set. You now have an online space for your project to live in.
-
-* creat your local repository
+* Skip the  initiate a README.md file option. Don’t worry about clicking the checkbox next to “Initialize this repository with a README.” A Readme file is usually a text file that explains a bit about the project. But you can make your own Readme file locally for practice later.  
+&nbsp;  
+* Click the green “Create Repository” button and you’re set. You now have an online space for your project to live in.  
+&nbsp;  
+* Create your local repository
     - navigate to the directory where you want to locate your project.
     - on terminal use mkdir to create a directory name it for example myR_project.
     - cd to myR_project
-    - type ```git init```
+    - type ```git init```  
 
 
-* Your computer now realizes this directory is Git-ready, and you can start inputting Git commands. Now you’ve got both an online and a local repo for your project to live inside.
+* Your computer now realizes this directory is Git-ready, and you can start inputting Git commands. Now you’ve got both an online and a local repo for your project to live inside.  
+&nbsp;  
 
-* Now let us check the current status for our project, run ```git status```. It will state that there are untracked files and suggests for you to use git add to include in what will be committed.
+* For the reason of this course, we need to construct some directories.
+    1. First install the CSV data USA arrest by following the steps
+        - Click the file name in a GitHub repo [here](https://github.com/ranibasna/Reproducible-research-with-R-).
+        - Navigate to the CsvData and click Raw to display the file contents.
+        - Copy the URL in your browser.
+        - In the command line, run either:
 
-* try to add one of the files. For instance run ```git add clustering_code``` then run again `git status`.
+                wget --no-check-certificate --content-disposition https://URL-from-step3/
+                # or
+                curl -LJO https://URL-from-step3/
 
-* You can also add multiple files in one command. For example, run `git add Documentation Results/`
+    2. Using mkdir create the following directories: CsvData, cluster_code, markdown_reports, Results.
+    3. cd to clustering_code and touch cluster_code.R.
+    4. Open the file in your preferred editor then, copy paste the code from the github repo to the file.
+    5. Repeat the same with the markdown_reports. Pay attention that it is a markdown file format.
 
-* You might as well add all files in one go! Use `git add` on the remaining files
+
+* Now let us check the current status for our project, run ```git status```. It will state that there are untracked files and suggests for you to use git add to include in what will be committed.  
+&nbsp;  
+
+* Try to add one of the files. For instance run ```git add clustering_code``` then run again `git status`.  
+&nbsp;  
+
+* You can also add multiple files in one command. For example, run `git add markdown_reports Results/`  
+&nbsp;  
+
+* You might as well add all files in one go! Use `git add` on the remaining files  
+&nbsp;  
 
 * We are now ready to commit! Run:
 
@@ -107,11 +129,15 @@ Normally, you sit on your computer an work on a project. you commit changes as y
 
 * Since you haven’t connected to the GitHub repo yet, your computer doesn’t even know this exists. So tell your local repository about it:
 
-        git remote add origin https://github.com/123WebDesign/icecream.git
+        git remote add origin https://github.com/your_repo_url
 
 * you can now push the changes to the remote repository (usually called the master branch)
 
         git push -u origin master
+
+!!! Note
+    From now on you do not need to specify to where you are pushing inside this git project. git push is enough.
+
 
 * If you go to your github project page you can see that all the files are their. Also, they are on lated version. You can check that.
 

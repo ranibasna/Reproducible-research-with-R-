@@ -1,10 +1,11 @@
 site_name: Reproducible Research with R
+theme: cinder
 nav:
     - Home: index.md
-    - Conda: conda.md
     - Git: Git.md
+    - Conda: conda.md
     - Rmarkdown: Rmarkdown.md
     - Final word: final_word.md
-theme: readthedocs
+#theme: readthedocs
 markdown_extensions:
   - admonition
