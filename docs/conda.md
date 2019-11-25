@@ -190,3 +190,10 @@ We have up until now specified which Conda packages to install directly on the c
             conda install --rev REVNUM
 
     * NOTE: Replace REVNUM with the revision number.    
+
+
+## Conda cheat sheet
+
+![Conda cheat sheet](conda-cheatsheet.jpg)
+
+![Conda cheat sheet](conda-cheatsheet-002.jpg)
