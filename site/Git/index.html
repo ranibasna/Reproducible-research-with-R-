@@ -140,7 +140,11 @@
                 
             <li class="second-level"><a href="#ignoring-files">Ignoring files</a></li>
                 
+            <li class="second-level"><a href="#tagging">Tagging</a></li>
+                
         <li class="first-level "><a href="#git-with-r-and-rstudio">Git with R and Rstudio</a></li>
+            <li class="second-level"><a href="#our-project">Our project</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -292,7 +296,7 @@ curl -LJO https://URL-from-step3/
 <p>Run <code>git diff file_name</code> use the name of the file you did a modification on instead of file_name. . A <code>-</code> means a deleted line, a <code>+</code> means an added line. There are also shown a few lines before and after the changes, to put them in context. Do tow another harmless modification in two different files. Run <code>git status</code>. Now run <code>git diff</code>. If we don't specify a file, it will show all changes made in any file,  compared to the previous commit. Do you see your changes?.</p>
 </li>
 <li>
-<p>Now as before git add the two files in one command and then git commit each of them in a separate command. This is a best practics as we want to optimally each commit to be a specified set of changes?</p>
+<p>Now as before git add the two files in one command and then git commit each of them in a separate command. This is the best practics as we want to optimally each commit to be a specified set of changes?</p>
 </li>
 <li>
 <p>To see a history of our changes so far, run:</p>
@@ -301,11 +305,11 @@ curl -LJO https://URL-from-step3/
 </li>
 <li>
 <p>You can use <code>git rm file_name</code> to remove a file (this can be seen as a combination of two steps <code>rm file_name</code> then <code>git add file_name</code>)
-let us remove clusterimg_result. Run <code>git rm Results/cluster_result</code>. This will add the removing to the staging area. Now you can commit the removal. You can see that directory Results does not exists anymore.</p>
+let us remove clustering_result. Run <code>git rm Results/cluster_result</code>. This will add the removing to the staging area. Now you can commit the removal. You can see that directory Results does not exists anymore.</p>
 </li>
 </ul>
 <h2 id="pushing-changes-to-the-remote-repository">Pushing changes to the remote Repository</h2>
-<p>Normally, you sit on your computer an work on a project. you commit changes as you go. At some point (usually when you feel that you have added some new features to the project) you can push these changes to the remote (Online) repository.</p>
+<p>Normally, you sit on your computer and work on a project. you commit changes as you go. At some point (usually when you feel that you have added some new features to the project) you can push these changes to the remote (Online) repository.</p>
 <ul>
 <li>
 <p>Since you haven’t connected to the GitHub repo yet, your computer doesn’t even know this exists. So tell your local repository about it:</p>
@@ -323,7 +327,7 @@ let us remove clusterimg_result. Run <code>git rm Results/cluster_result</code>.
 <p>From now on you do not need to specify to where you are pushing inside this git project. git push is enough.</p>
 </div>
 <ul>
-<li>If you go to your github project page you can see that all the files are their. Also, they are on lated version. You can check that.</li>
+<li>If you go to your GitHub project page you can see that all the files are there. Also, they are on the latest version. You can check that.</li>
 </ul>
 <h2 id="branching-with-git">Branching with Git</h2>
 <ul>
@@ -335,7 +339,7 @@ let us remove clusterimg_result. Run <code>git rm Results/cluster_result</code>.
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Note that it is more effecint to use branching when you are collaborating with others on a project. Since you may want to develop a new feature while letting otheres keep pushing to the master branch.</p>
+<p>Note that it is more efficient to use branching when you are collaborating with others on a project. Since you may want to develop a new feature while letting others keep pushing to the master branch.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -355,7 +359,7 @@ git branch
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You may want to work with others on the new branch, this is beyond our course scope. However,  you can create a remote branch. Similar to what we before, we need to tell that we add a rempte branch. In the follwoing commands we create and push a copy of the local branch to the remote repo.</p>
+<p>You may want to work with others on the new branch, this is beyond our course scope. However,  you can create a remote branch. Similar to what we did before, we need to tell git that we added a remote branch. In the following commands, we create and push a copy of the local branch to the remote repo.</p>
 <pre><code>    $ git remote add new_branch-remote-repo `github url`
     # Add remote repo to local repo config
     $ git push &lt;new_branch-remote-repo&gt; branch_name~
@@ -379,7 +383,7 @@ git branch
 </code></pre>
 </li>
 <li>
-<p>checking out branch (switch between branches): The git checkout command lets you navigate between the branches created by git branch. Checking out a branch updates the files in the working directory to match the version stored in that branch, and it tells Git to record all new commits on that branch. Think of it as a way to select which line of development you’re working on.</p>
+<p>Checking out branch (switch between branches): The git checkout command lets you navigate between the branches created by git branch. Checking out a branch updates the files in the working directory to match the version stored in that branch, and it tells Git to record all new commits on that branch. Think of it as a way to select which line of development you’re working on.</p>
 <pre><code># you can try
 git checkout new_branch
 git branch # to varify that you are now moved to the new branch
@@ -394,13 +398,13 @@ git branch # to varify that you are now moved to the new branch
 <h2 id="merging">Merging</h2>
 <ul>
 <li>
-<p>The git merge command lets you take the independent lines of development created by git branch and integrate them into a single branch. Suppose that after running tests and adding new things you are satisfied with the your new feature that you are develpoing on your new branch. it is now the time to merge with the master branch.  You do this with the git merge command (after checking out to the master branch):</p>
+<p>The git merge command lets you take the independent lines of development created by git branch and integrate them into a single branch. Suppose that after running tests and adding new things you are satisfied with the your new feature that you are developing on your new branch. it is now the time to merge with the master branch.  You do this with the git merge command (after checking out to the master branch):</p>
 <pre><code>git checkout master
 git merge new_branch
 </code></pre>
 </li>
 <li>
-<p>it is important to distinguish between twoo type of merges that git performe.</p>
+<p>it is important to distinguish between two types of merges that git performed.</p>
 </li>
 <li>
 <p>A fast-forward merge can occur when there is a linear path from the current branch tip to the target branch. Instead of “actually” merging the branches, all Git has to do to integrate the histories is move (i.e., “fast forward”) the current branch tip up to the target branch tip. This effectively combines the histories, since all of the commits reachable from the target branch are now available through the current one. For example, a fast forward merge of some-feature into master would look something like the following:</p>
@@ -422,25 +426,37 @@ git merge new_branch
 <li>
 <p>We will now learn how to manage conflicts. This is important to know, since it will probably happen sooner or later. It can get a bit tricky, but the important thing is not to panic! :)</p>
 </li>
-</ul>
+<li>
 <p>On the github web page, navigate to clustering_code and click on clustering_code.R and click Edit. We can now edit this file directly on the web. This is generally not recommended, but we will do it here to demonstrate a point.
 Let's just add a comment inside the file. Do that:</p>
-<pre><code>    # adding a comment inside the clustering_code file
+<pre><code># adding a comment inside the clustering_code file
 </code></pre>
-<p>Click Commit. Add the commit message: "adding a comment inside the clustering_code file". Click Commit.
-Click Commits to the left to see the commit history, and your latest change at the top.
-Now we have a change in the remote repository that is not yet in our local clone. This could happen for instance if a collaborator of yours committed a change and pushed it to github.</p>
+</li>
+<li>
+<p>Click Commit. Add the commit message: "adding a comment inside the clustering_code file". Click Commit.</p>
+</li>
+<li>Click Commits to the left to see the commit history, and your latest change at the top.</li>
+<li>
+<p>Now we have a change in the remote repository that is not yet in our local clone. This could happen for instance if a collaborator of yours committed a change and pushed it to github.</p>
+</li>
+<li>
 <p>Go back to your local terminal. Run git status. Notice that git says: "Your branch is up-to-date with 'origin/master'.". This is of course not true, but our local git clone is not yet aware of the remote changes. We will get those changes soon.
 But first, we will edit clustering_code.R locally as well! (It may be the case that your collaborator thought it was good to use different coding function or different approach, but neither of you communicated that to the other.) Use a text editor and change the the same chenges at the same line.</p>
-<p>Commit your change (use git status along the way if you want to check what is happening in the different steps):
-git status
+</li>
+<li>
+<p>Commit your change (use git status along the way if you want to check what is happening in the different steps):</p>
+<pre><code>git status
 git add clustering_code.R
 git status
 git commit -m "adding a comment inside the clustering_code file"
 git status
-Now let's try to push this commit!
-git push</p>
-<ul>
+</code></pre>
+</li>
+<li>
+<p>Now let's try to push this commit!</p>
+<pre><code>git push
+</code></pre>
+</li>
 <li>
 <p>Read the error message. It should be fairly informative of what is going on. In essence it will not allow you to push since there are conflicting changes made to the remote repository.</p>
 </li>
@@ -513,6 +529,40 @@ CsvData/
 <p>Go ahead and add, commit, and push the .gitignore file.</p>
 </li>
 </ul>
+<h2 id="tagging">Tagging</h2>
+<p>Git has the ability to tag specific points in a repository’s history as being important. Typically, people use this functionality to mark release points (v1.0, v2.0 and so on). This can be, for example, the version of the repository that was used for the manuscript submission, the version used during resubmission, and, most importantly, the version used for the final publication.</p>
+<p>Let say that you are happy with the clustering results so far and would like to included in the submission. You can tag the current scripts by running</p>
+<pre><code>    git tag "first-submission"
+</code></pre>
+<p>To push your tag run</p>
+<pre><code>    git push --tags
+</code></pre>
+<p>Suppose that the Journal referees send a comments that it is better to use Hierarchical clustering instead.</p>
+<pre><code>    res.dist &lt;- dist(df, method = "euclidean")
+    # The R code below displays the first 6 rows and columns of the distance matrix:
+    as.matrix(res.dist)[1:6, 1:6]
+    # warld linkage
+    res.hc &lt;- hclust(d = res.dist, method = "ward.D2")
+    # for visulization you can add the following as well to the markdown_reports code
+    #fviz_dend(res.hc, cex = 0.5)
+</code></pre>
+<p>Now in the command line</p>
+<pre><code>    git add  cluster_code
+    git commit -m"put your comment"
+    git push
+</code></pre>
+<p>Suppose the journal referee are happy and your paper got published you can tag this version as well</p>
+<pre><code>    git tag "publication-version"
+    git push --tags
+</code></pre>
+<p>You may also do some more updates later, you can tag a third version then. You can now check your github page under the release section.</p>
+<p>git users who want to reproduce your analysis with the code used for the publication can clone the Bitbucket repository and then run <code>git checkout publication-version</code>.</p>
+<p>You can try this in your local clone, run:</p>
+<pre><code>    git checkout publication-version
+</code></pre>
+<p>To go back to the latest version, run:</p>
+<pre><code>    git checkout master
+</code></pre>
 <h1 id="git-with-r-and-rstudio">Git with R and Rstudio</h1>
 <ul>
 <li>
@@ -551,6 +601,7 @@ CsvData/
 <p>Pushing from RStudio: Click the green “Push” button to send your local changes to GitHub. If you are challenged for username and password, provide them (confirm from command line and the gitrepo the changes).</p>
 </li>
 </ul>
+<h2 id="our-project">Our project</h2>
 <p><img alt="" src="../image.png" /></p></div>
         
         

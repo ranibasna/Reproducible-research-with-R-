@@ -205,7 +205,7 @@ Normally, you sit on your computer and work on a project. you commit changes as 
         git merge new_branch
 
 
-* it is important to distinguish between two types of merges that git performed.
+* It is important to distinguish between two types of merges that git performed.
 
 
 * A fast-forward merge can occur when there is a linear path from the current branch tip to the target branch. Instead of “actually” merging the branches, all Git has to do to integrate the histories is move (i.e., “fast forward”) the current branch tip up to the target branch tip. This effectively combines the histories, since all of the commits reachable from the target branch are now available through the current one. For example, a fast forward merge of some-feature into master would look something like the following:
@@ -235,7 +235,8 @@ Let's just add a comment inside the file. Do that:
 * Now we have a change in the remote repository that is not yet in our local clone. This could happen for instance if a collaborator of yours committed a change and pushed it to github.
 
 * Go back to your local terminal. Run git status. Notice that git says: "Your branch is up-to-date with 'origin/master'.". This is of course not true, but our local git clone is not yet aware of the remote changes. We will get those changes soon.
-But first, we will edit clustering_code.R locally as well! (It may be the case that your collaborator thought it was good to use different coding function or different approach, but neither of you communicated that to the other.) Use a text editor and change the the same chenges at the same line.
+
+* Let us first edit the clustering_code.R file locally as well! (It may be the case that your collaborator thought it was good to use a different coding function or a different approach, but neither of you communicated that to the other.) Use a text editor and change the same changes at the same line.
 
 * Commit your change (use git status along the way if you want to check what is happening in the different steps):
 
@@ -268,7 +269,7 @@ But first, we will edit clustering_code.R locally as well! (It may be the case t
         git pull
 
 !!!Tip
-    Note that you can skip the `git fetch`command if you want to and run `git pull` directly. The difference is that fetch will just update git with the latest information of the remote status, whereas pull will try to integrate and sync those changes to your local clone directly.
+    Note that you can skip the `git fetch` command if you want to and run `git pull` directly. The difference is that fetch will just update git with the latest information of the remote status, whereas pull will try to integrate and sync those changes to your local clone directly.
 
 * As you have probably noticed, the git pull command resulted in a conflict. Git tells us about this and suggests that we should fix the conflicts and commit that. As always, run git status to get an overview! You will see that you have, so called, unmerged paths and that the conflicting file is clustering_code.R, since both modified the same line in this file. To fix a conflict, open the affected file in a text editor. You will see that it now looks different.
 
