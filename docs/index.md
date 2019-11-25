@@ -48,4 +48,4 @@ Of course there much more. If you are interested you can search for yourself. Ho
 
 ## Install before the lab session:
 
-Pleas install Conda and Git by following the directions presented in the their pages. 
+Pleas install Conda and Git by following the directions presented in their pages. 
