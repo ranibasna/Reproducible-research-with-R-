@@ -9,10 +9,7 @@
     3. Better documentation: As a best practice tip in scripting. Your code should be understandable. your goal should be clear. However, even if it looks very obvious to you in the present, it may not be the case in the future. (write comments, use packages such as  roxygen)
 
     4. Testing
-    Bugs are a very popular result of large scripts. it is very good practice to test your data structure and the specific conditions of your workflow. By introducing testing you eliminate any chance of wrong workflow or bugs in your analysis. This is another usage of functions to avoid bugs and keep control of your analysis by testing the output of the functions, for instance. A very famous option is to use the package testthat
-
-
-The package testthat provides a powerful and easy-to-use framework to build tests for your functions.
+    Bugs are a very popular result of large scripts. it is very good practice to test your data structure and the specific conditions of your workflow. By introducing testing you eliminate any chance of wrong workflow or bugs in your analysis. This is another usage of functions to avoid bugs and keep control of your analysis by testing the output of the functions, for instance. A very famous option is to use the package testthat. The package testthat provides a powerful and easy-to-use framework to build tests for your functions.
 
 
 * Options for reproducing:

@@ -44,8 +44,8 @@ Here are some nice links
 - [Data coding](https://data36.com/data-coding-101-introduction-bash/).
 - [linux command line basics Free course](https://www.udacity.com/course/linux-command-line-basics--ud595)
 
-Of course there much more. If you are interested you can search for yourself. However, for our course there are three commands that we will use intenslly, `cd` stands for change directory, `mkdir` stands for make directory, `ls` stands for list. and `cd ..`stands for go up one folder.
+Of course there much more. If you are interested you can search for yourself. However, for our course there are four commands that we will use intensely, `cd` stands for change directory, `mkdir` stands for make directory, `ls` stands for list. and `cd ..` stands for go up one folder.
 
 ## Install before the lab session:
 
-Pleas install Conda and Git by following the directions presented in their pages. 
+Pleas install Conda and Git by following the directions presented in their pages.

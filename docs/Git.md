@@ -324,6 +324,7 @@ Suppose that the Journal referees send a comments that it is better to use Hiera
         res.hc <- hclust(d = res.dist, method = "ward.D2")
         # for visulization you can add the following as well to the markdown_reports code
         #fviz_dend(res.hc, cex = 0.5)
+
 Now in the command line
 
         git add  cluster_code
