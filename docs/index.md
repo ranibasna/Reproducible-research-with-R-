@@ -25,3 +25,27 @@ All comments, feedback and corrections are welcome.
 - Setting up a GitHub account.
 - Familiriaty with R code is not essential but preferable.
 - Familiriaty with markdown language is a plus.
+
+
+## Introduction to R
+
+Here are some links where you can get started with R programming language.
+
+- [R tutorial](http://www.r-tutor.com/r-introduction)
+- [An Introduction to R](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf)
+- [Statistical Analysis with R for Public Health Specialization](https://www.coursera.org/specializations/statistical-analysis-r-public-health)
+- [Data Science: Foundations using R Specialization](https://www.coursera.org/specializations/data-science-foundations-r)
+- [Statistics with R Specialization](https://www.coursera.org/specializations/statistics).
+
+## Introduction to command line
+
+Here are some nice links
+
+- [Data coding](https://data36.com/data-coding-101-introduction-bash/).
+- [linux command line basics Free course](https://www.udacity.com/course/linux-command-line-basics--ud595)
+
+Of course there much more. If you are interested you can search for yourself. However, for our course there are three commands that we will use intenslly, `cd` stands for change directory, `mkdir` stands for make directory, `ls` stands for list. and `cd ..`stands for go up one folder.
+
+## Install before the lab session:
+
+Pleas install Conda and Git by following the directions presented in the their pages. 
