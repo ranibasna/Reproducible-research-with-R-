@@ -114,18 +114,18 @@ Now it’s time to go over to the command line. On Windows, that means starting 
 * modify any file with harmless changes, then run `git status`. What is the current status? As you can see git already catch the modification you did.
 * Run `git diff file_name` use the name of the file you did a modification on instead of file_name. . A `-` means a deleted line, a `+` means an added line. There are also shown a few lines before and after the changes, to put them in context. Do tow another harmless modification in two different files. Run `git status`. Now run `git diff`. If we don't specify a file, it will show all changes made in any file,  compared to the previous commit. Do you see your changes?.
 
-* Now as before git add the two files in one command and then git commit each of them in a separate command. This is a best practics as we want to optimally each commit to be a specified set of changes?
+* Now as before git add the two files in one command and then git commit each of them in a separate command. This is the best practics as we want to optimally each commit to be a specified set of changes?
 
 * To see a history of our changes so far, run:
 
         git log
 
 * You can use `git rm file_name` to remove a file (this can be seen as a combination of two steps `rm file_name` then `git add file_name`)
-let us remove clusterimg_result. Run `git rm Results/cluster_result`. This will add the removing to the staging area. Now you can commit the removal. You can see that directory Results does not exists anymore.
+let us remove clustering_result. Run `git rm Results/cluster_result`. This will add the removing to the staging area. Now you can commit the removal. You can see that directory Results does not exists anymore.
 
 ## Pushing changes to the remote Repository
 
-Normally, you sit on your computer an work on a project. you commit changes as you go. At some point (usually when you feel that you have added some new features to the project) you can push these changes to the remote (Online) repository.
+Normally, you sit on your computer and work on a project. you commit changes as you go. At some point (usually when you feel that you have added some new features to the project) you can push these changes to the remote (Online) repository.
 
 * Since you haven’t connected to the GitHub repo yet, your computer doesn’t even know this exists. So tell your local repository about it:
 
@@ -139,7 +139,7 @@ Normally, you sit on your computer an work on a project. you commit changes as y
     From now on you do not need to specify to where you are pushing inside this git project. git push is enough.
 
 
-* If you go to your github project page you can see that all the files are their. Also, they are on lated version. You can check that.
+* If you go to your GitHub project page you can see that all the files are there. Also, they are on the latest version. You can check that.
 
 ## Branching with Git
 
@@ -150,7 +150,7 @@ Normally, you sit on your computer an work on a project. you commit changes as y
 * The diagram above visualizes a repository with two isolated lines of development, one for a little feature, and one for a longer-running feature. By developing them in branches, it’s not only possible to work on both of them in parallel, but it also keeps the main master branch free from questionable code.
 
 !!! Note
-    Note that it is more effecint to use branching when you are collaborating with others on a project. Since you may want to develop a new feature while letting otheres keep pushing to the master branch.
+    Note that it is more efficient to use branching when you are collaborating with others on a project. Since you may want to develop a new feature while letting others keep pushing to the master branch.
 
 !!! Note
     It's important to understand that branches are just pointers to commits. When you create a branch, all Git needs to do is create a new pointer, it doesn’t change the repository in any other way. The repository history remains unchanged.
@@ -165,7 +165,7 @@ Normally, you sit on your computer an work on a project. you commit changes as y
 * you see a star beside the branch you are currently inside.
 
 !!!Note
-    You may want to work with others on the new branch, this is beyond our course scope. However,  you can create a remote branch. Similar to what we before, we need to tell that we add a rempte branch. In the follwoing commands we create and push a copy of the local branch to the remote repo.
+    You may want to work with others on the new branch, this is beyond our course scope. However,  you can create a remote branch. Similar to what we did before, we need to tell git that we added a remote branch. In the following commands, we create and push a copy of the local branch to the remote repo.
 
 
             $ git remote add new_branch-remote-repo `github url`
@@ -186,7 +186,7 @@ Normally, you sit on your computer an work on a project. you commit changes as y
 
         git push origin --delete branch_name
 
-* checking out branch (switch between branches): The git checkout command lets you navigate between the branches created by git branch. Checking out a branch updates the files in the working directory to match the version stored in that branch, and it tells Git to record all new commits on that branch. Think of it as a way to select which line of development you’re working on.
+* Checking out branch (switch between branches): The git checkout command lets you navigate between the branches created by git branch. Checking out a branch updates the files in the working directory to match the version stored in that branch, and it tells Git to record all new commits on that branch. Think of it as a way to select which line of development you’re working on.
 
         # you can try
         git checkout new_branch
@@ -199,13 +199,13 @@ Normally, you sit on your computer an work on a project. you commit changes as y
 
 ## Merging
 
-* The git merge command lets you take the independent lines of development created by git branch and integrate them into a single branch. Suppose that after running tests and adding new things you are satisfied with the your new feature that you are develpoing on your new branch. it is now the time to merge with the master branch.  You do this with the git merge command (after checking out to the master branch):
+* The git merge command lets you take the independent lines of development created by git branch and integrate them into a single branch. Suppose that after running tests and adding new things you are satisfied with the your new feature that you are developing on your new branch. it is now the time to merge with the master branch.  You do this with the git merge command (after checking out to the master branch):
 
         git checkout master
         git merge new_branch
 
 
-* it is important to distinguish between twoo type of merges that git performe.
+* it is important to distinguish between two types of merges that git performed.
 
 
 * A fast-forward merge can occur when there is a linear path from the current branch tip to the target branch. Instead of “actually” merging the branches, all Git has to do to integrate the histories is move (i.e., “fast forward”) the current branch tip up to the target branch tip. This effectively combines the histories, since all of the commits reachable from the target branch are now available through the current one. For example, a fast forward merge of some-feature into master would look something like the following:
@@ -225,26 +225,29 @@ Normally, you sit on your computer an work on a project. you commit changes as y
 
 * We will now learn how to manage conflicts. This is important to know, since it will probably happen sooner or later. It can get a bit tricky, but the important thing is not to panic! :)
 
-On the github web page, navigate to clustering_code and click on clustering_code.R and click Edit. We can now edit this file directly on the web. This is generally not recommended, but we will do it here to demonstrate a point.
+* On the github web page, navigate to clustering_code and click on clustering_code.R and click Edit. We can now edit this file directly on the web. This is generally not recommended, but we will do it here to demonstrate a point.
 Let's just add a comment inside the file. Do that:
 
         # adding a comment inside the clustering_code file
 
-Click Commit. Add the commit message: "adding a comment inside the clustering_code file". Click Commit.
-Click Commits to the left to see the commit history, and your latest change at the top.
-Now we have a change in the remote repository that is not yet in our local clone. This could happen for instance if a collaborator of yours committed a change and pushed it to github.
+* Click Commit. Add the commit message: "adding a comment inside the clustering_code file". Click Commit.
+* Click Commits to the left to see the commit history, and your latest change at the top.
+* Now we have a change in the remote repository that is not yet in our local clone. This could happen for instance if a collaborator of yours committed a change and pushed it to github.
 
-Go back to your local terminal. Run git status. Notice that git says: "Your branch is up-to-date with 'origin/master'.". This is of course not true, but our local git clone is not yet aware of the remote changes. We will get those changes soon.
+* Go back to your local terminal. Run git status. Notice that git says: "Your branch is up-to-date with 'origin/master'.". This is of course not true, but our local git clone is not yet aware of the remote changes. We will get those changes soon.
 But first, we will edit clustering_code.R locally as well! (It may be the case that your collaborator thought it was good to use different coding function or different approach, but neither of you communicated that to the other.) Use a text editor and change the the same chenges at the same line.
 
-Commit your change (use git status along the way if you want to check what is happening in the different steps):
-git status
-git add clustering_code.R
-git status
-git commit -m "adding a comment inside the clustering_code file"
-git status
-Now let's try to push this commit!
-git push
+* Commit your change (use git status along the way if you want to check what is happening in the different steps):
+
+        git status
+        git add clustering_code.R
+        git status
+        git commit -m "adding a comment inside the clustering_code file"
+        git status
+
+* Now let's try to push this commit!
+
+        git push
 
 
 * Read the error message. It should be fairly informative of what is going on. In essence it will not allow you to push since there are conflicting changes made to the remote repository.
@@ -379,5 +382,5 @@ To go back to the latest version, run:
 * Pushing from RStudio: Click the green “Push” button to send your local changes to GitHub. If you are challenged for username and password, provide them (confirm from command line and the gitrepo the changes).
 
 
-
+## Our project
 ![](image.png)
