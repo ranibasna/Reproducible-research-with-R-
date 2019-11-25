@@ -304,6 +304,51 @@ git push
 * Go ahead and add, commit, and push the .gitignore file.
 
 
+## Tagging
+Git has the ability to tag specific points in a repository’s history as being important. Typically, people use this functionality to mark release points (v1.0, v2.0 and so on). This can be, for example, the version of the repository that was used for the manuscript submission, the version used during resubmission, and, most importantly, the version used for the final publication.
+
+Let say that you are happy with the clustering results so far and would like to included in the submission. You can tag the current scripts by running
+
+        git tag "first-submission"
+
+To push your tag run
+
+        git push --tags
+
+Suppose that the Journal referees send a comments that it is better to use Hierarchical clustering instead.
+
+        res.dist <- dist(df, method = "euclidean")
+        # The R code below displays the first 6 rows and columns of the distance matrix:
+        as.matrix(res.dist)[1:6, 1:6]
+        # warld linkage
+        res.hc <- hclust(d = res.dist, method = "ward.D2")
+        # for visulization you can add the following as well to the markdown_reports code
+        #fviz_dend(res.hc, cex = 0.5)
+Now in the command line
+
+        git add  cluster_code
+        git commit -m"put your comment"
+        git push
+
+Suppose the journal referee are happy and your paper got published you can tag this version as well
+
+        git tag "publication-version"
+        git push --tags
+
+You may also do some more updates later, you can tag a third version then. You can now check your github page under the release section.
+
+git users who want to reproduce your analysis with the code used for the publication can clone the Bitbucket repository and then run `git checkout publication-version`.
+
+You can try this in your local clone, run:
+
+        git checkout publication-version
+
+
+To go back to the latest version, run:
+
+
+        git checkout master
+
 
 # Git with R and Rstudio
 
