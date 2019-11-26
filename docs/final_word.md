@@ -26,3 +26,4 @@
     2. Jupyter notebook
     3. Gnu make file (or any other make tool such as Snakemake)
     4. packaging with R
+    5. Continuous integration (example travis)

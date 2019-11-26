@@ -1,8 +1,7 @@
 # Ignore these directories:
 CsvData/
-
+site/
 # Ignore temporary files
 .Rhistory
 .DS_Store
 .Rproj.user
-site/
