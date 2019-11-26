@@ -289,6 +289,15 @@ Let's just add a comment inside the file. Do that:
 
 * Git is aware of all files within the repository. However, it is not uncommon to have files that we don't want git to track. For instance, our analysis might produce several intermediate files and results. We typically don't track such files. Rather, we want to track the actual code and other related files (e.g. configuration files) that produce the intermediate and result files, given the raw input data.
 
+* Let us make some intermediate directories.  For instance run the fowllowing commands:
+
+        mkdir suplementary-materials
+        mkdir logs
+        touch logs/to-do-list.tex
+        touch suplementary-materials/theories.doc
+        touch log.tmp
+
+
 * To tell git what files to ignore we use a file called .gitignore. Let's create it:
 
         touch .gitignore
@@ -296,11 +305,12 @@ Let's just add a comment inside the file. Do that:
 * Open the .gitignore file in an editor and add the following lines to it:
 
         # Ignore these directories:
-        CsvData/
+        suplementary-materials/
+        logs/
 
         # Ignore temporary files:
-        .Rhistory
-        .DS_Store
+        .log.tmp
+
 
 
 * Run git status again. Now there is no mention of the results and intermediate directories or the log.tmp file. Notice that we can use wildcards (`*`) to ignore files with a given pattern, e.g. a specific extension.
@@ -384,4 +394,4 @@ To go back to the latest version, run:
 
 
 ## Our project
-![](image.png)
+![](Screenshot 2019-11-26 11.19.12.png)
