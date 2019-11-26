@@ -41,7 +41,7 @@
 
 * These are chunks of R code that will be executed by knitr and replaced by their results. More on this later.
 
-Also note the web address that’s put between angle brackets (< >) as well as the double-asterisks in **Knit**.
+* Also note the web address that’s put between angle brackets (< >) as well as the double-asterisks in **Knit**.
 
 * As you can see, there are essentially three types of components in an R Markdown document:
 
@@ -72,11 +72,11 @@ Also note the web address that’s put between angle brackets (< >) as well as t
 
 * Parameters are specified using the params field within the YAML section. We can specify one or more parameters with each item on a new line. As an example, we will work with out clustering_report.Rmd file:
 
-* The idea is that we want to control over our report different scinario. Suppose that we want to generate a report with different clustering method. If you are familiar with your function you should know how to do that. For our case we the function `fviz_nbclust` from the library factoextra can take different clustering methods. Allowed values include kmeans, pam, clara and hcut (for hierarchical clustering).
+* The idea is that we want to control over our report different scinario. Suppose that we want to generate a report with different clustering method. If you are familiar with your function you should know how to do that. For our case the function `fviz_nbclust` from the library factoextra can take different clustering methods. Allowed values include kmeans, pam, clara and hcut (for hierarchical clustering).
 
 * All standard R types that can be parsed by yaml::yaml.load() can be included as parameters, including character, numeric, integer, and logical types. We can also use R objects by including !r before R expressions.
 
-* let us open the clustering_report inside the markdown_reports folder. edit the file so yaml header looks like this:
+* let us open the clustering_report inside the markdown_reports folder. Edit the file so yaml header looks like this:
 
         ---
         title: "Cluster-analysis"

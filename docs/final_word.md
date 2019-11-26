@@ -27,3 +27,15 @@
     3. Gnu make file (or any other make tool such as Snakemake)
     4. packaging with R
     5. Continuous integration (example travis)
+
+
+## References
+
+1. [R markdown the Definitive Guide](https://bookdown.org/yihui/rmarkdown/).
+2. [Git Tutorials](https://www.atlassian.com/git/tutorials).
+3. [Anaconda Documentation](https://docs.anaconda.com/anaconda/packages/r-language-pkg-docs/).
+4. [PRACTICAL GUIDE TO CLUSTER ANALYSIS IN R](https://www.datanovia.com/en/product/practical-guide-to-cluster-analysis-in-r/?url=/5-bookadvisor/17-practical-guide-to-cluster-analysis-in-r/).
+5. [Git Documentation](https://git-scm.com/doc).
+6. [Using git from RStudio](https://nceas.github.io/oss-lessons/version-control/4-getting-started-with-git-in-RStudio.html).
+7. [Tools for reproducible research](https://nbis-reproducible-research.readthedocs.io/en/latest/).
+8. [Reproducible Research in R Workshop](https://datacarpentry.org/rr-workshop/).
