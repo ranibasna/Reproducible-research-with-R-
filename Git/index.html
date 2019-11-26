@@ -404,7 +404,7 @@ git merge new_branch
 </code></pre>
 </li>
 <li>
-<p>it is important to distinguish between two types of merges that git performed.</p>
+<p>It is important to distinguish between two types of merges that git performed.</p>
 </li>
 <li>
 <p>A fast-forward merge can occur when there is a linear path from the current branch tip to the target branch. Instead of “actually” merging the branches, all Git has to do to integrate the histories is move (i.e., “fast forward”) the current branch tip up to the target branch tip. This effectively combines the histories, since all of the commits reachable from the target branch are now available through the current one. For example, a fast forward merge of some-feature into master would look something like the following:</p>
@@ -440,8 +440,10 @@ Let's just add a comment inside the file. Do that:</p>
 <p>Now we have a change in the remote repository that is not yet in our local clone. This could happen for instance if a collaborator of yours committed a change and pushed it to github.</p>
 </li>
 <li>
-<p>Go back to your local terminal. Run git status. Notice that git says: "Your branch is up-to-date with 'origin/master'.". This is of course not true, but our local git clone is not yet aware of the remote changes. We will get those changes soon.
-But first, we will edit clustering_code.R locally as well! (It may be the case that your collaborator thought it was good to use different coding function or different approach, but neither of you communicated that to the other.) Use a text editor and change the the same chenges at the same line.</p>
+<p>Go back to your local terminal. Run git status. Notice that git says: "Your branch is up-to-date with 'origin/master'.". This is of course not true, but our local git clone is not yet aware of the remote changes. We will get those changes soon.</p>
+</li>
+<li>
+<p>Let us first edit the clustering_code.R file locally as well! (It may be the case that your collaborator thought it was good to use a different coding function or a different approach, but neither of you communicated that to the other.) Use a text editor and change the same changes at the same line.</p>
 </li>
 <li>
 <p>Commit your change (use git status along the way if you want to check what is happening in the different steps):</p>
@@ -481,7 +483,7 @@ git status
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Note that you can skip the <code>git fetch</code>command if you want to and run <code>git pull</code> directly. The difference is that fetch will just update git with the latest information of the remote status, whereas pull will try to integrate and sync those changes to your local clone directly.</p>
+<p>Note that you can skip the <code>git fetch</code> command if you want to and run <code>git pull</code> directly. The difference is that fetch will just update git with the latest information of the remote status, whereas pull will try to integrate and sync those changes to your local clone directly.</p>
 </div>
 <ul>
 <li>
@@ -508,6 +510,15 @@ git status
 <p>Git is aware of all files within the repository. However, it is not uncommon to have files that we don't want git to track. For instance, our analysis might produce several intermediate files and results. We typically don't track such files. Rather, we want to track the actual code and other related files (e.g. configuration files) that produce the intermediate and result files, given the raw input data.</p>
 </li>
 <li>
+<p>Let us make some intermediate directories.  For instance run the fowllowing commands:</p>
+<pre><code>mkdir suplementary-materials
+mkdir logs
+touch logs/to-do-list.tex
+touch suplementary-materials/theories.doc
+touch log.tmp
+</code></pre>
+</li>
+<li>
 <p>To tell git what files to ignore we use a file called .gitignore. Let's create it:</p>
 <pre><code>touch .gitignore
 </code></pre>
@@ -515,11 +526,11 @@ git status
 <li>
 <p>Open the .gitignore file in an editor and add the following lines to it:</p>
 <pre><code># Ignore these directories:
-CsvData/
+suplementary-materials/
+logs/
 
 # Ignore temporary files:
-.Rhistory
-.DS_Store
+.log.tmp
 </code></pre>
 </li>
 <li>
@@ -602,7 +613,7 @@ CsvData/
 </li>
 </ul>
 <h2 id="our-project">Our project</h2>
-<p><img alt="" src="../image.png" /></p></div>
+<p><img alt="" src="../Screenshot 2019-11-26 11.19.12.png" /></p></div>
         
         
     </div>
