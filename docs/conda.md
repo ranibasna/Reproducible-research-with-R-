@@ -1,4 +1,4 @@
-# Welcome to reproducible research with R
+# Conda package manager
 
 ## Installing Miniconda package manager
 
@@ -120,8 +120,6 @@ We can create R environment with the following command:
 !!! note
     You can now remove the environments you created.
 
-!!! danger
-    do not
 
 * After making a few different environments and installing a bunch of packages, Conda can take up some disk space. You can remove unnecessary files with the command:
 
