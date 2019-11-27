@@ -130,7 +130,8 @@
         <li class="first-level active"><a href="#conda-package-manager">Conda package manager</a></li>
             <li class="second-level"><a href="#installing-miniconda-package-manager">Installing Miniconda package manager</a></li>
                 
-        <li class="first-level "><a href="#creating-a-conda-environment-for-r">Creating a conda environment for R</a></li>
+        <li class="first-level "><a href="#why-conda">Why Conda</a></li>
+        <li class="first-level "><a href="#creating-a-conda-environment-for-r">Creating a Conda environment for R</a></li>
         <li class="first-level "><a href="#opening-rstudio-within-the-r-conda-environment">Opening RStudio within the R conda environment</a></li>
         <li class="first-level "><a href="#how-to-make-your-project-reproducible-with-conda-environment">How to make your project reproducible with Conda environment</a></li>
             <li class="second-level"><a href="#conda-cheat-sheet">Conda cheat sheet</a></li>
@@ -177,7 +178,11 @@ which conda # Location on your computer.
 </code></pre>
 </li>
 </ul>
-<h1 id="creating-a-conda-environment-for-r">Creating a conda environment for R</h1>
+<h1 id="why-conda">Why Conda</h1>
+<p>Briefly, Anaconda, or conda, is a software package manager. Anaconda will make your scientific programming life easier by facilitating software installations for many programs or packages. You can google <code>conda install for software X</code>, and often find a single line command to install the most recent version of that software.</p>
+<p>Even better, Anaconda allows you to create compartmentalized computational environments (called conda environments) where you can install any mixture of things you require without accidentally messing up other software downloads on your computer. You can use these conda environments in any number of ways– they can be program-specific (for the running of one specific tool) or project-specific (to store versions for a whole workflow). For instance, you may working on a collaborative project which requires building bioinformatic pipelines with several different programs. It is key that your collaborator and you maintain the same versions of software, so code that you write individually can be easily shared. For this, you can create and share a conda environment. More info on getting started with conda <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html">here</a>.</p>
+<p>Conda environments have been widely adopted as a means of facilitating reproducible computation across the Python ecosystem– but is now expanding to include other programming languages such as R more <a href="https://docs.anaconda.com/anaconda/user-guide/tasks/using-r-language/">here</a>.</p>
+<h1 id="creating-a-conda-environment-for-r">Creating a Conda environment for R</h1>
 <ul>
 <li>
 <p>To use R in an environment, all you need to do is install the r-base package. This will install the latest R version.
@@ -297,7 +302,7 @@ conda install -c conda-forge r-factoextra
 <li>
 <p>initiate a git repository and git clone our our project using the following command</p>
 <pre><code>git clone https://github.com/ranibasna/Reproducible-research-with-R-.git
-# if  you are using an ssh client then clone with using ssh
+# if  you are using an ssh client then clone using ssh
 </code></pre>
 </li>
 <li>
@@ -309,7 +314,7 @@ conda install -c conda-forge r-factoextra
 <p>You can see that we now inside the results folder we have a CSV file that contains the data with the resulting clusters.</p>
 </li>
 <li>
-<p>We will now run the clustering code r file which is already written in the file clustering_code. But in order for us to assure reproducibility of the environment, we will build a file that assures such an approach. The easiest way to make your work reproducible by others is to include a file in your project’s root directory listing all the packages, along with their version numbers, that are installed in your project’s environment. Conda calls these environment files.</p>
+<p>Suppose that some one else need to run the <code>cluster_code.r</code> file which is already written in the file clustering_code (Another researcher who want to reproduce your result or one of the journal referees). But in order for us to assure reproducibility of the environment, we will build a file that assures such an approach. The easiest way to make your work reproducible by others is to include a file in your project’s root directory listing all the packages, along with their version numbers, that are installed in your project’s environment. Conda calls these environment files.</p>
 </li>
 <li>
 <p>You can make the <code>environment.yml</code> file in the following way:</p>
@@ -332,7 +337,7 @@ dependencies:
 </code></pre>
 </li>
 <li>
-<p>Once you created the environment file, you can make a new Conda environment from the yaml file which is identical to the one we have reproducing our environment. (note that here the command is conda env create as opposed to conda create that we used above):</p>
+<p>Once you created the environment file, Anyone can make a new Conda environment from the yaml file which is identical to the one we have reproducing our environment. (note that here the command is conda env create as opposed to conda create that we used above):</p>
 <pre><code>conda env create -n r_env2 -f environment.yml
 </code></pre>
 </li>
