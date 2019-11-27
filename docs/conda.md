@@ -35,9 +35,16 @@
         conda --version # which version you are running.
         which conda # Location on your computer.
 
+# Why Conda
+
+Briefly, Anaconda, or conda, is a software package manager. Anaconda will make your scientific programming life easier by facilitating software installations for many programs or packages. You can google `conda install for software X`, and often find a single line command to install the most recent version of that software.
+
+Even better, Anaconda allows you to create compartmentalized computational environments (called conda environments) where you can install any mixture of things you require without accidentally messing up other software downloads on your computer. You can use these conda environments in any number of ways– they can be program-specific (for the running of one specific tool) or project-specific (to store versions for a whole workflow). For instance, you may working on a collaborative project which requires building bioinformatic pipelines with several different programs. It is key that your collaborator and you maintain the same versions of software, so code that you write individually can be easily shared. For this, you can create and share a conda environment. More info on getting started with conda [here](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html).
+
+Conda environments have been widely adopted as a means of facilitating reproducible computation across the Python ecosystem– but is now expanding to include other programming languages such as R more [here](https://docs.anaconda.com/anaconda/user-guide/tasks/using-r-language/).
 
 
-# Creating a conda environment for R
+# Creating a Conda environment for R
 
 
 * To use R in an environment, all you need to do is install the r-base package. This will install the latest R version.

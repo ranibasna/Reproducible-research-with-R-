@@ -123,7 +123,7 @@
 * There are four ways in which a parameterized report can be knitted:
 
     - Using the Knit button within RStudio.
-    - By running the R command rmarkdown::render() with the params argument from r consol.
+    - By running the R command rmarkdown::render() with the params argument from R consol.
     - By running on the terminal command line: R -e 'rmarkdown::render("my_file.Rmd")'
     - Using an interactive user interface to input parameter values.
 
