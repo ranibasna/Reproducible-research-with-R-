@@ -177,7 +177,7 @@ We have up until now specified which Conda packages to install directly on the c
             - r-factominer=1.42
             - r-factoextra=1.0.5
 
-* Once you created the environment file, Anyone can make a new Conda environment from the yaml file which is identical to the one we have reproducing our environment. (note that here the command is conda env create as opposed to conda create that we used above):
+* Once you created the environment file, anyone can make a new Conda environment from the yaml file which is identical to the one we have reproducing our environment. (note that here the command is conda env create as opposed to conda create that we used above):
 
         conda env create -n r_env2 -f environment.yml
 

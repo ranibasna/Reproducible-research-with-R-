@@ -43,6 +43,7 @@ The best way to get an idea about git is simply to start using it. The tutorial 
 * Install Git:
 Chances are that you already have git installed on your computer. You can check by running e.g. ```git --version```. If you don't have git, install it following the instructions [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
+* Create a GitHub account. 
 
 * Configure Git:
 Now it’s time to go over to the command line. On Windows, that means starting the Git Bash app you installed, and on OS X, it’s regular old Terminal. It’s time to introduce yourself to Git. Type in the following code:
