@@ -98,7 +98,7 @@ Now it’s time to go over to the command line. On Windows, that means starting 
 * Now let us check the current status for our project, run ```git status```. It will state that there are untracked files and suggests for you to use git add to include in what will be committed.  
 &nbsp;  
 
-* Try to add one of the files. For instance run ```git add clustering_code``` then run again `git status`.  
+* Try to add one of the files. For instance run ```git add cluster_code``` then run again `git status`.  
 &nbsp;  
 
 * You can also add multiple files in one command. For example, run `git add markdown_reports Results/`  
@@ -190,7 +190,7 @@ Normally, you sit on your computer and work on a project. you commit changes as 
 
         # you can try
         git checkout new_branch
-        git branch # to varify that you are now moved to the new branch
+        git branch # to verify that you are now moved to the new branch
 
 
 * The git checkout command accepts a -b argument that acts as a convenience method which will create the new branch and immediately switch to it. You can work on multiple features in a single repository by switching between them with git checkout.
@@ -390,8 +390,8 @@ To go back to the latest version, run:
     - Type a message in “Commit message”, such as “Commit from RStudio”.
     - Click “Commit”.
 
-* Pushing from RStudio: Click the green “Push” button to send your local changes to GitHub. If you are challenged for username and password, provide them (confirm from command line and the gitrepo the changes).
+* Pushing from RStudio: Click the green “Push” button to send your local changes to GitHub. If you are challenged for username and password, provide them (confirm from command line and the git repo the changes).
 
 
-## Our project
+## Our project organization
 ![](Screenshot 2019-11-26 11.19.12.png)
