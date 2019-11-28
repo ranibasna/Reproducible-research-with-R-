@@ -70,10 +70,10 @@ Now it’s time to go over to the command line. On Windows, that means starting 
 * Click the green “Create Repository” button and you’re set. You now have an online space for your project to live in.  
 &nbsp;  
 * Create your local repository
-    - navigate to the directory where you want to locate your project.
-    - on terminal use mkdir to create a directory name it for example myR_project.
+    - Navigate to the directory where you want to locate your project. (**Pay attention to which directory you are in currently**)
+    - On terminal use mkdir to create a directory name it for example myR_project.
     - cd to myR_project
-    - type ```git init```  
+    - Type ```git init```  
 
 
 * Your computer now realizes this directory is Git-ready, and you can start inputting Git commands. Now you’ve got both an online and a local repo for your project to live inside.  
@@ -90,7 +90,9 @@ Now it’s time to go over to the command line. On Windows, that means starting 
                 wget --no-check-certificate --content-disposition https://URL-from-step3/
                 # or
                 curl -LJO https://URL-from-step3/
-        - you can also install it from other online resourses
+                #for mac users (use homebrew to install wget or curl incase you do not have one of these tools)
+
+        - you can also install the data from other online resourses (google it)
 
     3. cd to clustering_code and touch cluster_code.R.
     4. Open the file in your preferred editor then, copy paste the code from the github repo to the file.

@@ -44,7 +44,16 @@ Here are some nice links
 - [Data coding](https://data36.com/data-coding-101-introduction-bash/).
 - [linux command line basics Free course](https://www.udacity.com/course/linux-command-line-basics--ud595)
 
-Of course there much more. If you are interested you can search for yourself. However, for our course there are four commands that we will use intensely, `cd` stands for change directory, `mkdir` stands for make directory, `ls` stands for list. and `cd ..` stands for go up one folder.
+Of course there much more. If you are interested you can search for yourself. However, for our course there are five commands that we will use intensely, `cd` stands for change directory, `mkdir` stands for make directory, `ls` stands for list, `touch` stands for create a file, and `cd ..` stands for go up one folder.
+
+## For windows users
+One option for windows users is to install the bash shell follow the instruction in the one of the fowllowing links:
+
+- [official windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+- [howtogeek](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/)
+- [itsfoss](https://itsfoss.com/install-bash-on-windows/)
+
+Another option is to use PwoerShell or gitbash.
 
 ## Install before the lab session:
 
