@@ -2,9 +2,9 @@
 
 ## Installing Miniconda package manager
 
-* Please follow the direction [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
+* for all users (mac, linux and windows) Please follow the direction [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
 
-* you cal also follow the below direction
+* you cal also follow the below direction for mac and linux users
 
 
         *** Install Miniconda3 for 64-bit macOS ***
@@ -106,7 +106,7 @@ We can create R environment with the following command:
 * Some package groups require installation through a different conda channel. Two of the main ones I use are bioconductor Bioconda and conda-forge. Next, we will setup the the default channels (from where packages will be searched for and downloaded if no channel is specified).
 
         Type these commands in this exact order:
-        conda config --add channels defaults ()
+        conda config --add channels defaults
         conda config --add channels bioconda
         conda config --add channels conda-forge
 

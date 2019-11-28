@@ -43,7 +43,7 @@ The best way to get an idea about git is simply to start using it. The tutorial 
 * Install Git:
 Chances are that you already have git installed on your computer. You can check by running e.g. ```git --version```. If you don't have git, install it following the instructions [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-* Create a GitHub account. 
+* Create a GitHub account.
 
 * Configure Git:
 Now it’s time to go over to the command line. On Windows, that means starting the Git Bash app you installed, and on OS X, it’s regular old Terminal. It’s time to introduce yourself to Git. Type in the following code:
@@ -80,7 +80,8 @@ Now it’s time to go over to the command line. On Windows, that means starting 
 &nbsp;  
 
 * For the reason of this course, we need to construct some directories.
-    1. First install the CSV data USA arrest by following the steps
+    1. Using mkdir create the following directories: CsvData, cluster_code, markdown_reports, Results.
+    2. First install the CSV data USA arrest by following the steps
         - Click the file name in a GitHub repo [here](https://github.com/ranibasna/Reproducible-research-with-R-).
         - Navigate to the CsvData and click Raw to display the file contents.
         - Copy the URL in your browser.
@@ -89,8 +90,8 @@ Now it’s time to go over to the command line. On Windows, that means starting 
                 wget --no-check-certificate --content-disposition https://URL-from-step3/
                 # or
                 curl -LJO https://URL-from-step3/
+        - you can also install it from other online resourses
 
-    2. Using mkdir create the following directories: CsvData, cluster_code, markdown_reports, Results.
     3. cd to clustering_code and touch cluster_code.R.
     4. Open the file in your preferred editor then, copy paste the code from the github repo to the file.
     5. Repeat the same with the markdown_reports. Pay attention that it is a markdown file format.
