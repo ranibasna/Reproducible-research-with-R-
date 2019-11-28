@@ -87,7 +87,8 @@ We can create R environment with the following command:
 * remove a package form the environment
 
         conda remove r-tidyverse
-
+!!!NOTE
+    For more detail on managing packages see [here](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html)
 
 * if you want to install an older version of R you can search within conda for all older versions (Do not do it now for time sake)
     - ```conda search r-base``` or ```conda search -c r r```
@@ -109,7 +110,10 @@ We can create R environment with the following command:
         conda config --add channels defaults
         conda config --add channels bioconda
         conda config --add channels conda-forge
+!!! NOTE
+    to remove a channel type
 
+        conda config --remove channels `channel-name`
 
 
 # Opening RStudio within the R conda environment

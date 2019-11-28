@@ -142,6 +142,10 @@ Normally, you sit on your computer and work on a project. you commit changes as 
 !!! Note
     From now on you do not need to specify to where you are pushing inside this git project. git push is enough.
 
+!!!NOTE
+    As a best practice (specifically when working with a groups) it is highly recommend to pull the lates updates that your coluges has done then push your changes.
+    see the git pull command.
+
 
 * If you go to your GitHub project page you can see that all the files are there. Also, they are on the latest version. You can check that.
 
