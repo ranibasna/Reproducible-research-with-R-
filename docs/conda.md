@@ -88,7 +88,7 @@ We can create R environment with the following command:
 
         conda remove r-tidyverse
 !!!NOTE
-    For more detail on managing packages see [here](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html)
+    For more details on managing packages see [here](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html)
 
 * if you want to install an older version of R you can search within conda for all older versions (Do not do it now for time sake)
     - ```conda search r-base``` or ```conda search -c r r```
@@ -114,7 +114,8 @@ We can create R environment with the following command:
     to remove a channel type
 
         conda config --remove channels `channel-name`
-
+!!! NOTE
+    If you already have Miniconda or Anaconda installed, and you just want to upgrade, you should not use the installer. Just use `conda update`.
 
 # Opening RStudio within the R conda environment
 
