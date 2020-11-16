@@ -144,10 +144,10 @@
 <h2 id="installing-miniconda-package-manager">Installing Miniconda package manager</h2>
 <ul>
 <li>
-<p>Please follow the direction <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html">here</a></p>
+<p>for all users (mac, linux and windows) Please follow the direction <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html">here</a></p>
 </li>
 <li>
-<p>you cal also follow the below direction</p>
+<p>you cal also follow the below direction for mac and linux users</p>
 <pre><code>*** Install Miniconda3 for 64-bit macOS ***
 curl https://repo.continuum.io/miniconda/Miniconda3-4.7.12-MacOSX-x86_64.sh -O
 bash Miniconda3-4.7.12-MacOSX-x86_64.sh
@@ -231,11 +231,13 @@ Quit R quit() or q().
 Also, Find out what versions of r-factominer are available in the bioconda channel using <code>conda search -c conda-forge r-factominer</code> you can seek more details by using conda search --help.</p>
 </div>
 <ul>
-<li>
-<p>remove a package form the environment</p>
-<pre><code>conda remove r-tidyverse
-</code></pre>
-</li>
+<li>remove a package form the environment</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more details on managing packages see <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html">here</a></p>
+</div>
+<ul>
 <li>
 <p>if you want to install an older version of R you can search within conda for all older versions (Do not do it now for time sake)</p>
 <ul>
@@ -256,13 +258,16 @@ Also, Find out what versions of r-factominer are available in the bioconda chann
 </li>
 <li>
 <p>Some package groups require installation through a different conda channel. Two of the main ones I use are bioconductor Bioconda and conda-forge. Next, we will setup the the default channels (from where packages will be searched for and downloaded if no channel is specified).</p>
-<pre><code>Type these commands in this exact order:
-conda config --add channels defaults ()
-conda config --add channels bioconda
-conda config --add channels conda-forge
-</code></pre>
 </li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>to remove a channel type</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you already have Miniconda or Anaconda installed, and you just want to upgrade, you should not use the installer. Just use <code>conda update</code>.</p>
+</div>
 <h1 id="opening-rstudio-within-the-r-conda-environment">Opening RStudio within the R conda environment</h1>
 <ul>
 <li>

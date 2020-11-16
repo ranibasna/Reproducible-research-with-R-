@@ -199,7 +199,7 @@
 Chances are that you already have git installed on your computer. You can check by running e.g. <code>git --version</code>. If you don't have git, install it following the instructions <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">here</a></p>
 </li>
 <li>
-<p>Create a GitHub account. </p>
+<p>Create a GitHub account.</p>
 </li>
 <li>
 <p>Configure Git:
@@ -237,10 +237,10 @@ Now it’s time to go over to the command line. On Windows, that means starting 
 <li>
 <p>Create your local repository</p>
 <ul>
-<li>navigate to the directory where you want to locate your project.</li>
-<li>on terminal use mkdir to create a directory name it for example myR_project.</li>
+<li>Navigate to the directory where you want to locate your project. (<strong>Pay attention to which directory you are in currently</strong>)</li>
+<li>On terminal use mkdir to create a directory name it for example myR_project.</li>
 <li>cd to myR_project</li>
-<li>type <code>git init</code>  </li>
+<li>Type <code>git init</code>  </li>
 </ul>
 </li>
 <li>
@@ -250,23 +250,29 @@ Now it’s time to go over to the command line. On Windows, that means starting 
 <li>
 <p>For the reason of this course, we need to construct some directories.</p>
 <ol>
+<li>Using mkdir create the following directories: CsvData, cluster_code, markdown_reports, Results.</li>
 <li>
 <p>First install the CSV data USA arrest by following the steps</p>
 <ul>
 <li>Click the file name in a GitHub repo <a href="https://github.com/ranibasna/Reproducible-research-with-R-">here</a>.</li>
 <li>Navigate to the CsvData and click Raw to display the file contents.</li>
 <li>Copy the URL in your browser.</li>
-<li>In the command line, run either:<pre><code>wget --no-check-certificate --content-disposition https://URL-from-step3/
+<li>
+<p>In the command line, run either:</p>
+<pre><code>wget --no-check-certificate --content-disposition https://URL-from-step3/
 # or
 curl -LJO https://URL-from-step3/
+#for mac users (use homebrew to install wget or curl incase you do not have one of these tools)
 </code></pre>
+</li>
+<li>
+<p>you can also install the data from other online resourses (google it)</p>
 </li>
 </ul>
 </li>
 <li>
-<p>Using mkdir create the following directories: CsvData, cluster_code, markdown_reports, Results.</p>
+<p>cd to clustering_code and touch cluster_code.R.</p>
 </li>
-<li>cd to clustering_code and touch cluster_code.R.</li>
 <li>Open the file in your preferred editor then, copy paste the code from the github repo to the file.</li>
 <li>Repeat the same with the markdown_reports. Pay attention that it is a markdown file format.</li>
 </ol>
@@ -328,6 +334,11 @@ let us remove clustering_result. Run <code>git rm Results/cluster_result</code>.
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>From now on you do not need to specify to where you are pushing inside this git project. git push is enough.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As a best practice (specifically when working with a groups) it is highly recommend to pull the lates updates that your coluges has done then push your changes.
+see the git pull command.</p>
 </div>
 <ul>
 <li>If you go to your GitHub project page you can see that all the files are there. Also, they are on the latest version. You can check that.</li>
