@@ -2,22 +2,17 @@
 
 ## Installing Miniconda package manager
 
-* for all users (mac, linux and windows) Please follow the direction [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
+* You can follow the below direction for mac and linux (windows with bash shell installed) users
 
-* you cal also follow the below direction for mac and linux users
-
+        *** Install Miniconda3 for 64-bit Linux And Windows users using bash shell ***
+        curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O
+        bash Miniconda3-latest-Linux-x86_64.sh
+        rm Miniconda3-latest-Linux-x86_64.sh
 
         *** Install Miniconda3 for 64-bit macOS ***
-        curl https://repo.continuum.io/miniconda/Miniconda3-4.7.12-MacOSX-x86_64.sh -O
-        bash Miniconda3-4.7.12-MacOSX-x86_64.sh
-        rm Miniconda3-4.7.12-MacOSX-x86_64.sh
-
-        *** Install Miniconda3 for 64-bit Linux ***
-
-        curl https://repo.continuum.io/miniconda/Miniconda3-4.7.12-Linux-x86_64.sh -O
-        bash Miniconda3-4.7.12-Linux-x86_64.sh
-        rm Miniconda3-4.7.12-Linux-x86_64.sh
-
+        curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O
+        bash Miniconda3-latest-MacOSX-x86_64.sh
+        rm Miniconda3-latest-MacOSX-x86_64.sh
 
 
 
@@ -29,6 +24,8 @@
 
 * Either restart your shell so the settings in ```~/.bashrc/~/.bash_profile
     ``` can take effect, or ```source ~/.bashrc/~/.bash_profile```.
+
+* Or for users (mac, linux and windows (PwoerShell)) Please follow the direction [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
 
 * Once you have miniconda installed, check the version.
 

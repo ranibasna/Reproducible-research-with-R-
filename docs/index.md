@@ -47,13 +47,13 @@ Here are some nice links
 Of course there much more. If you are interested you can search for yourself. However, for our course there are five commands that we will use intensely, `cd` stands for change directory, `mkdir` stands for make directory, `ls` stands for list, `touch` stands for create a file, and `cd ..` stands for go up one folder.
 
 ## For windows users
-One option for windows users is to install the bash shell follow the instruction in the one of the fowllowing links:
+One option for windows users is to install the bash shell (recommended). Please, follow the instruction in the one of the following links:
 
 - [official windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 - [howtogeek](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/)
 - [itsfoss](https://itsfoss.com/install-bash-on-windows/)
 
-Another option is to use PwoerShell or gitbash.
+Another option is to use PwoerShell or gitbash. However, for the rest of the course you need to have some knowledge to navigate through the windows PwoerShell system. 
 
 ## Install before the lab session:
 
