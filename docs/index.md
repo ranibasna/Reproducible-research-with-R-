@@ -49,11 +49,13 @@ Of course there much more. If you are interested you can search for yourself. Ho
 ## For windows users
 One option for windows users is to install the bash shell (recommended). Please, follow the instruction in the one of the following links:
 
+- [Setup your Windows 10 machine for Machine Learning][https://becominghuman.ai/how-to-setup-your-windows-10-machine-for-machine-learning-using-ubuntu-bash-shell-b32f01bd31ab].
 - [official windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 - [howtogeek](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/)
 - [itsfoss](https://itsfoss.com/install-bash-on-windows/)
 
-Another option is to use PwoerShell or gitbash. However, for the rest of the course you need to have some knowledge to navigate through the windows PwoerShell system. 
+For the rest of the course please follow the linux option instead of windows when installing softwares and packages.
+Another option is to use PwoerShell or gitbash. However, for the rest of the course you need to have some knowledge to navigate through the windows PwoerShell system.
 
 ## Install before the lab session:
 
