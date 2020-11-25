@@ -54,6 +54,7 @@ One option for windows users is to install the bash shell (recommended). Please,
 - [howtogeek](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/)
 - [itsfoss](https://itsfoss.com/install-bash-on-windows/)
 
+Once you are in the command line, run `apt-get update` before you start installing other softwares. you will also probably will need to install `curl` or `wget`. Please run the following commands: `apt install wget` for wget or `apt install curl` for curl.
 For the rest of the course please follow the linux option instead of windows when installing softwares and packages.
 Another option is to use PwoerShell or gitbash. However, for the rest of the course you need to have some knowledge to navigate through the windows PwoerShell system.
 

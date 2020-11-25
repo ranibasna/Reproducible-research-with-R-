@@ -230,7 +230,9 @@ Quit R quit() or q().
 Also, Find out what versions of r-factominer are available in the bioconda channel using <code>conda search -c conda-forge r-factominer</code> you can seek more details by using conda search --help.</p>
 </div>
 <ul>
-<li>remove a package form the environment</li>
+<li>remove a package form the environment<pre><code>conda remove r-tidyverse
+</code></pre>
+</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -257,6 +259,11 @@ Also, Find out what versions of r-factominer are available in the bioconda chann
 </li>
 <li>
 <p>Some package groups require installation through a different conda channel. Two of the main ones I use are bioconductor Bioconda and conda-forge. Next, we will setup the the default channels (from where packages will be searched for and downloaded if no channel is specified).</p>
+<pre><code>Type these commands in this exact order:
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+</code></pre>
 </li>
 </ul>
 <div class="admonition note">
@@ -304,7 +311,7 @@ conda install -c conda-forge r-factoextra
 </code></pre>
 </li>
 <li>
-<p>initiate a git repository and git clone our our project using the following command</p>
+<p>initiate a git repository and git clone our project using the following command</p>
 <pre><code>git clone https://github.com/ranibasna/Reproducible-research-with-R-.git
 # if  you are using an ssh client then clone using ssh
 </code></pre>
@@ -315,7 +322,7 @@ conda install -c conda-forge r-factoextra
 </code></pre>
 </li>
 <li>
-<p>You can see that we now inside the results folder we have a CSV file that contains the data with the resulting clusters.</p>
+<p>You can see that, now inside the results folder, we have a CSV file that contains the data with the resulting clusters.</p>
 </li>
 <li>
 <p>Suppose that some one else need to run the <code>cluster_code.r</code> file which is already written in the file clustering_code (Another researcher who want to reproduce your result or one of the journal referees). But in order for us to assure reproducibility of the environment, we will build a file that assures such an approach. The easiest way to make your work reproducible by others is to include a file in your project’s root directory listing all the packages, along with their version numbers, that are installed in your project’s environment. Conda calls these environment files.</p>
