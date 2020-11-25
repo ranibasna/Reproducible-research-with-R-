@@ -82,6 +82,7 @@ Now it’s time to go over to the command line. On Windows, that means starting 
 * For the reason of this course, we need to construct some directories.
     1. Using mkdir create the following directories: CsvData, cluster_code, markdown_reports, Results.
     2. First install the CSV data USA arrest by following the steps
+        - cd too CsvData in the local project directory.
         - Click the file name in a GitHub repo [here](https://github.com/ranibasna/Reproducible-research-with-R-).
         - Navigate to the CsvData and click Raw to display the file contents.
         - Copy the URL in your browser.
@@ -92,7 +93,8 @@ Now it’s time to go over to the command line. On Windows, that means starting 
                 curl -LJO https://URL-from-step3/
                 #for mac users (use homebrew to install wget or curl incase you do not have one of these tools)
 
-        - you can also install the data from other online resourses (google it)
+        - You can also install the data from other online resourses (google it)
+        - Go back to the main project directory using ```cd ..``` command.  
 
     3. cd to clustering_code and touch cluster_code.R.
     4. Open the file in your preferred editor then, copy paste the code from the github repo to the file.
@@ -151,7 +153,7 @@ Normally, you sit on your computer and work on a project. you commit changes as 
 
 ## Branching with Git
 
-* branching is an operation that let you work on some features of the project in an isolated manner of the master branch. This effectly means that your work in the new branch will not affect the main project files.  You can as ell use branchs to fix a problem that appear in the project. This allow you to work in peace knowing that your stable version is in safe. When you feel that the new feature (you are developing using a new branch) is a good stable state you can merge it with the master branch and it will be part of the project.
+* branching is an operation that let you work on some features of the project in an isolated manner of the master branch. This effectly means that your work in the new branch will not affect the main project files.  You can as well use branchs to fix a problem that appear in the project. This allow you to work in peace knowing that your stable version is in safe. When you feel that the new feature (you are developing using a new branch) is in a good stable state you can merge it with the master branch and it will be part of the project.
 
 ![](01.svg)
 

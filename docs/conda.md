@@ -84,6 +84,7 @@ We can create R environment with the following command:
 * remove a package form the environment
 
         conda remove r-tidyverse
+
 !!!NOTE
     For more details on managing packages see [here](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html)
 
@@ -107,6 +108,7 @@ We can create R environment with the following command:
         conda config --add channels defaults
         conda config --add channels bioconda
         conda config --add channels conda-forge
+
 !!! NOTE
     to remove a channel type
 
@@ -148,7 +150,7 @@ We have up until now specified which Conda packages to install directly on the c
         conda install -c conda-forge r-factoextra
 
 
-* initiate a git repository and git clone our our project using the following command
+* initiate a git repository and git clone our project using the following command
 
         git clone https://github.com/ranibasna/Reproducible-research-with-R-.git
         # if  you are using an ssh client then clone using ssh
@@ -157,7 +159,7 @@ We have up until now specified which Conda packages to install directly on the c
 
         Rscript clustering_code/cluster_code.R CsvData/USArrests.csv Results/clustering_result.csv
 
-* You can see that we now inside the results folder we have a CSV file that contains the data with the resulting clusters.
+* You can see that, now inside the results folder, we have a CSV file that contains the data with the resulting clusters.
 
 * Suppose that some one else need to run the `cluster_code.r` file which is already written in the file clustering_code (Another researcher who want to reproduce your result or one of the journal referees). But in order for us to assure reproducibility of the environment, we will build a file that assures such an approach. The easiest way to make your work reproducible by others is to include a file in your project’s root directory listing all the packages, along with their version numbers, that are installed in your project’s environment. Conda calls these environment files.
 
