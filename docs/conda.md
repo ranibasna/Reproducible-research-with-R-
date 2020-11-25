@@ -113,6 +113,7 @@ We can create R environment with the following command:
     to remove a channel type
 
         conda config --remove channels `channel-name`
+        
 !!! NOTE
     If you already have Miniconda or Anaconda installed, and you just want to upgrade, you should not use the installer. Just use `conda update`.
 
