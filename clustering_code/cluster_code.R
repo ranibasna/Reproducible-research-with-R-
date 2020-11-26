@@ -3,7 +3,7 @@ args = commandArgs(trailingOnly=TRUE)
 filename <- args[1]
 
 USArrests <- read.csv(file = filename)
-df <- scale(USArrests, scale = FALSE)
+df <- scale(USArrests)
 set.seed(123)
 # we will now apply kmeans method to cluster the data
 #  
