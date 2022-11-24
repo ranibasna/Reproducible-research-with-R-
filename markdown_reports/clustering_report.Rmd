@@ -4,7 +4,7 @@ output:
   html_document: default
 params:
   cl_method: !r kmeans
-  Rows_num : 5
+  Rows_num : 6
 ---
 
 
